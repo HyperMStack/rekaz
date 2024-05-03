@@ -34,7 +34,7 @@ const projectData = {
 
 export default function project() {
   return (
-    <LayoutWrapper logo={websiteData.logo} navItems={navLinks}>
+    <LayoutWrapper logo={`/logo-hor.svg`} navItems={navLinks} showNav={true}>
       <Hero image={projectData.coverImage} />
       <Info projectInfo={projectData} />
       <ImageSet imageSet={projectData.imageSet_1} />

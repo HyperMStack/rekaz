@@ -14,11 +14,9 @@ import {
 } from "@/data/data";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
-    <LayoutWrapper logo={websiteData.logo} navItems={navLinks}>
+    <LayoutWrapper logo={websiteData.logo} navItems={navLinks} showNav={false}>
       <Hero data={heroData} />
       <ProjectsCarousel projects={projects} />
       <Sectors sectorsData={sectors} />
