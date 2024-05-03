@@ -1,5 +1,3 @@
-import { LayoutWrapper } from "@/components/LayoutWrapper";
-import { navLinks, websiteData } from "@/data/data";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -7,10 +5,8 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <body>
-        <LayoutWrapper logo={websiteData.logo} navItems={navLinks}>
-          <Main />
-          <NextScript />
-        </LayoutWrapper>
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );

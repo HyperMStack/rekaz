@@ -1,9 +1,11 @@
+import { LayoutWrapper } from "@/components/LayoutWrapper";
 import { Contact } from "../components/index/Contact";
 import { Hero } from "../components/project/Hero";
 import ImageSet from "../components/project/ImageSet";
 import { Info } from "../components/project/Info";
 import { InlineDescription } from "../components/project/InlineDescription";
 import { WideImage } from "../components/project/WideImage";
+import { navLinks, websiteData } from "@/data/data";
 
 const projectData = {
   coverImage: "/images/project/project.jpg",
@@ -32,7 +34,7 @@ const projectData = {
 
 export default function project() {
   return (
-    <div>
+    <LayoutWrapper logo={websiteData.logo} navItems={navLinks}>
       <Hero image={projectData.coverImage} />
       <Info projectInfo={projectData} />
       <ImageSet imageSet={projectData.imageSet_1} />
@@ -42,6 +44,6 @@ export default function project() {
       <ImageSet imageSet={projectData.imageSet_2} />
       <ImageSet imageSet={projectData.imageSet_1} />
       <Contact className={`mt-20`} />
-    </div>
+    </LayoutWrapper>
   );
 }
