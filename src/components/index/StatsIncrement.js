@@ -38,12 +38,15 @@ export function StatsIncrement() {
     return () => observer.disconnect();
   }, []);
 
+  const bgImage = "/images/bg.jpg";
+
   return (
     <div
-      className={`h-[80vh] bg-[url(/images/bg.jpg)] bg-bottom bg-no-repeat flex flex-col md:flex-row justify-between items-center p-5 md:p-10 max-w-[1350px] my-0 mx-auto`}
+      style={{ backgroundImage: `url(${bgImage})` }}
+      className={`h-[70vh] bg-bottom bg-no-repeat flex flex-col md:flex-row justify-between items-center p-5 md:p-10 max-w-[1350px] my-0 mx-auto`}
     >
-      <div className="basis-full md:basis-2/5 text-center md:text-start max-w-96">
-        <h2 className="text-2xl md:text-5xl font-bold mb-4">
+      <div className="basis-1/2 md:basis-3/6 lg:basis-2/5 text-center md:text-start max-w-96 content-center">
+        <h2 className="text-2xl md:text-5xl font-bold mb-8">
           Building for the best
         </h2>
         <p className="text-base md:text-lg">
@@ -53,7 +56,7 @@ export function StatsIncrement() {
         </p>
       </div>
       <div className="hidden md:block" />
-      <div className="basis-full md:basis-1/5">
+      <div className="basis-full md:basis-2/6 lg:basis-1/5 content-center">
         {statsData.map((item, i) => (
           <div className="my-10" key={i}>
             <h3 className="text-2xl md:text-3xl font-bold">

@@ -11,7 +11,9 @@ export function Hero({ data }) {
         className="!h-screen w-full object-cover !static"
         fill
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-transparent"></div>
+      <div
+        className={`absolute inset-0 bg-gradient-to-b from-[#062c3b] via-transparent to-transparent`}
+      ></div>
       <div className="bottom-[15%] left-[10%] absolute flex flex-col items-start content-center gap-4">
         <b className="text-7xl md:text-8xl text-white"> {data.text}</b>
 

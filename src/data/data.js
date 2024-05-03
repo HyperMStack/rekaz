@@ -5,12 +5,9 @@ export const websiteData = {
   logo: { light: "/logo_light.png", dark: "/logo_dark.png" },
 };
 export const colors = {
-  main: "",
-  secondary: "",
-  strokes: "",
-  textColor: "black",
-  textHoverColor: "orange",
-  backgroundColor: "white",
+  primary: "#08394D",
+  secondary: "#E0B87C",
+  strokes: "#E7E9EA",
 };
 
 export const contactInfo = [
