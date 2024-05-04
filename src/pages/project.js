@@ -7,11 +7,14 @@ import { InlineDescription } from "../components/project/InlineDescription";
 import { WideImage } from "../components/project/WideImage";
 import { navLinks, websiteData } from "@/data/data";
 import { ImageSlider } from "@/components/project/ImageSlider";
+import Head from "next/head";
 
 const projectData = {
   coverImage: "/images/project1/1.webp",
   title: "Project Title",
   slug: "project-title",
+  keywords: "",
+
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam tenetur dolorem ullam dolores animi corporis illum harum. Obcaecati soluta a atque culpa ipsam necessitatibus asperiores facere modi eos mollitia. Molestiae vitae minima laudantium, sapiente nostrum ipsa, facilis, voluptates perferendis quaerat inventore quidem eligendi. A deserunt culpa necessitatibus aperiam illo commodi, dolorum similique eaque. Distinctio porro officiis ipsa? Laboriosam, alias!",
   clientName: "Client's name",
@@ -49,16 +52,41 @@ const projectData = {
 
 export default function project() {
   return (
-    <LayoutWrapper logo={websiteData.logo} navItems={navLinks} showNav={false}>
-      <Hero image={projectData.coverImage} />
-      <Info projectInfo={projectData} />
-      <ImageSet imageSet={projectData.imageSet_1} />
-      <InlineDescription inlineDescription={projectData.InlineDescription} />
-      <WideImage image={projectData.wideImage} />
-      <InlineDescription inlineDescription={projectData.InlineDescription} />
-      <ImageSet imageSet={projectData.imageSet_2} />
-      <ImageSlider images={projectData.sliderImages} />
-      <Contact className={`mt-20`} />
-    </LayoutWrapper>
+    <>
+      <Head>
+        <title>{projectData.title}</title>
+        <meta
+          name="description"
+          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam tenetur dolorem ullam dolores animi corporis illum harum."
+          key="description"
+        />
+        <meta property="og:title" content={projectData.title} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://rekaz.netlify.app/${projectData.slug}`}
+        />
+        <meta
+          property="og:image"
+          content={`https://rekaz.netlify.app${projectData.coverImage}`}
+        />
+        <meta property="og:site_name" content={`Rekaz Development`} />
+      </Head>
+      <LayoutWrapper
+        logo={websiteData.logo}
+        navItems={navLinks}
+        showNav={false}
+      >
+        <Hero image={projectData.coverImage} />
+        <Info projectInfo={projectData} />
+        <ImageSet imageSet={projectData.imageSet_1} />
+        <InlineDescription inlineDescription={projectData.InlineDescription} />
+        <WideImage image={projectData.wideImage} />
+        <InlineDescription inlineDescription={projectData.InlineDescription} />
+        <ImageSet imageSet={projectData.imageSet_2} />
+        <ImageSlider images={projectData.sliderImages} />
+        <Contact className={`mt-20`} />
+      </LayoutWrapper>
+    </>
   );
 }
