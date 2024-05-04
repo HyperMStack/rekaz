@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 
 export function ImageSlider({ images }) {
@@ -12,8 +13,11 @@ export function ImageSlider({ images }) {
   return (
     <div className="container flex flex-col md:flex-row mx-auto h-172 aspect-2/3 md:aspect-3/2 overflow-hidden mt-16">
       {images.map(({ image }, index) => (
-        <img
+        <Image
           key={index}
+          width={1920}
+          height={1080}
+          sizes="(max-width: 1080px) 100vw, (max-width: 840px) 50vw, 33vw"
           style={{
             transition: "all 0.4s cubic-bezier(0.32, 0, 0.67, 0)",
           }}
