@@ -49,8 +49,7 @@ export const Navbar = ({ navItems, logo, showNav }) => {
               height={showNav ? 180 : 200}
               src={logo.dark || logo}
               alt="Rekaz-logo"
-              style={{ height: `${showNav ? "140px" : "200px"}` }}
-              className={`z-10`}
+              className={`z-10 ${showNav ? "h-[140px]" : "w-auto h-[140px] md:h-[200px]"}`}
             />
           </Link>
           {showNav && (

@@ -8,7 +8,7 @@ export function Sector({ icon, title, text }) {
         height={25}
         src={icon}
         alt={title}
-        className="mb-4 aspect-square w-36"
+        className="mb-4 aspect-square w-16 md:w-20 lg:w-32"
       />
       <p className="text-2xl font-bold mb-2">{title}</p>
       <p>{text}</p>

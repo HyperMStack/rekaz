@@ -17,7 +17,6 @@ export function ImageSlider({ images }) {
           key={index}
           width={1920}
           height={1080}
-          sizes="(max-width: 1080px) 100vw, (max-width: 840px) 50vw, 33vw"
           style={{
             transition: "all 0.4s cubic-bezier(0.32, 0, 0.67, 0)",
           }}
