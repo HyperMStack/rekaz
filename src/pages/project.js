@@ -81,10 +81,10 @@ export default function project() {
         <Info projectInfo={projectData} />
         <ImageSet imageSet={projectData.imageSet_1} />
         <InlineDescription inlineDescription={projectData.InlineDescription} />
-        <WideImage image={projectData.wideImage} />
+        <ImageSlider images={projectData.sliderImages} />
+        {/* <WideImage image={projectData.wideImage} /> */}
         <InlineDescription inlineDescription={projectData.InlineDescription} />
         <ImageSet imageSet={projectData.imageSet_2} />
-        <ImageSlider images={projectData.sliderImages} />
         <Contact className={`mt-20`} />
       </LayoutWrapper>
     </>

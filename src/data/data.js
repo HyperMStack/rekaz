@@ -38,9 +38,18 @@ export const contactInfo = [
 ];
 
 export const socialLinks = [
-  { id: 1, text: "facebook", icon: "/images/svg/facebook.svg", link: "#" },
-  { id: 2, text: "github", icon: "/images/svg/github.svg", link: "#" },
-  { id: 3, text: "discord", icon: "/images/svg/discord.svg", link: "#" },
+  {
+    id: 1,
+    text: "whatsapp",
+    icon: "/images/svg/whatsapp.svg",
+    link: "https://wa.me/+96893966662",
+  },
+  {
+    id: 2,
+    text: "instagram",
+    icon: "/images/svg/instagram.svg",
+    link: "https://www.instagram.com/rekaz.office",
+  },
 ];
 
 export const statsData = [
