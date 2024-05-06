@@ -6,9 +6,7 @@ export function Hero({ data }) {
   return (
     <div className="relative">
       <Image
-        // src={data.image}
-        src="/images/124_3 - Photo.jpg"
-        // src="/images/5.jpg"
+        src={data.image}
         alt={data.buttonText}
         className="!h-screen w-full object-cover !static"
         fill
