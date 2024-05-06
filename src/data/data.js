@@ -48,7 +48,7 @@ export const socialLinks = [
     id: 2,
     text: "instagram",
     icon: "/images/svg/instagram.svg",
-    link: "https://www.instagram.com/rekaz.office",
+    link: "https://www.instagram.com/rekaz.construction?igsh=a3Q0ZmdoNGhsZ3lw",
   },
 ];
 
@@ -92,7 +92,7 @@ export const footerLinks = [
 ];
 
 export const heroData = {
-  image: "/images/construction.jpg",
+  image: "/images/124_1-Photo.webp",
   text: "Build. Invest.",
   typedText: ["Suceed.", "Innovate."],
   buttonText: "Contact Us",

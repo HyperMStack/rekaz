@@ -6,7 +6,9 @@ export function Hero({ data }) {
   return (
     <div className="relative">
       <Image
-        src={data.image}
+        // src={data.image}
+        src="/images/124_3 - Photo.jpg"
+        // src="/images/5.jpg"
         alt={data.buttonText}
         className="!h-screen w-full object-cover !static"
         fill
@@ -14,11 +16,11 @@ export function Hero({ data }) {
       <div
         className={`absolute inset-0 bg-gradient-to-b from-[#062c3b] via-transparent to-transparent`}
       ></div>
-      <div className="bottom-[15%] left-[10%] absolute flex flex-col items-start content-center gap-4">
-        <b className="text-7xl md:text-8xl text-white"> {data.text}</b>
+      <div className="bottom-[20%] left-[10%] absolute flex flex-col items-start content-center gap-4 leading-8">
+        <b className="text-6xl md:text-8xl text-white"> {data.text}</b>
 
         <TypingAnimation words={data.typedText} />
-        <button className="">
+        <button className="my-4">
           <Link
             href="/#"
             className="text-black rounded-none px-8 py-3 bg-white font-semibold"
