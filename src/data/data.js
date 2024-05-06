@@ -92,7 +92,7 @@ export const footerLinks = [
 ];
 
 export const heroData = {
-  image: "/images/124_1-Photo.webp",
+  image: "/images/124_1.webp",
   text: "Build. Invest.",
   typedText: ["Suceed.", "Innovate."],
   buttonText: "Contact Us",
