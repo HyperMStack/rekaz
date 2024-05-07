@@ -6,30 +6,30 @@ import Link from "next/link";
 export function ProjectsCarousel({ projects }) {
   const options = { loop: true };
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
-  const autoScrollInterval = useRef(null);
+  // const autoScrollInterval = useRef(null);
 
-  useEffect(() => {
-    if (!emblaApi) return;
+  // useEffect(() => {
+  //   if (!emblaApi) return;
 
-    const startAutoScroll = () => {
-      autoScrollInterval.current = setInterval(() => {
-        emblaApi.scrollNext(); // Change to scrollPrev() if you want to scroll in reverse
-      }, 3500); // Adjust the interval time as needed
-    };
+  //   const startAutoScroll = () => {
+  //     autoScrollInterval.current = setInterval(() => {
+  //       emblaApi.scrollNext(); // Change to scrollPrev() if you want to scroll in reverse
+  //     }, 3500); // Adjust the interval time as needed
+  //   };
 
-    const stopAutoScroll = () => {
-      clearInterval(autoScrollInterval.current);
-    };
+  //   const stopAutoScroll = () => {
+  //     clearInterval(autoScrollInterval.current);
+  //   };
 
-    emblaApi.on("init", startAutoScroll);
-    emblaApi.on("destroy", stopAutoScroll);
+  //   emblaApi.on("init", startAutoScroll);
+  //   emblaApi.on("destroy", stopAutoScroll);
 
-    startAutoScroll();
+  //   startAutoScroll();
 
-    return () => {
-      stopAutoScroll();
-    };
-  }, [emblaApi]);
+  //   return () => {
+  //     stopAutoScroll();
+  //   };
+  // }, [emblaApi]);
 
   return (
     <div className="my-16 container mx-auto">
