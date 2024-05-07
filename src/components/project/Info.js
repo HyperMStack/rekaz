@@ -6,10 +6,12 @@ export function Info({ projectInfo }) {
         <p className="text-lg">{projectInfo.description}</p>
       </div>
       <div className="col-span-2 md:col-span-1">
-        <h4 className="text-xl font-semibold my-3">Client</h4>
-        <p className="text-lg">{projectInfo.clientName}</p>
-        <h4 className="text-xl font-semibold my-3">Sector</h4>
-        <p className="text-lg">{projectInfo.sector}</p>
+        <h4 className="text-xl font-semibold my-3">Number of Floors</h4>
+        <p className="text-lg">{projectInfo.floorNr}</p>
+        <h4 className="text-xl font-semibold my-3">Plot of Area</h4>
+        <p className="text-lg">
+          {projectInfo.areaSize} m<sup>2</sup>
+        </p>
         <h4 className="text-xl font-semibold my-3">Location</h4>
         <p className="text-lg">{projectInfo.location}</p>
       </div>

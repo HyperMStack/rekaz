@@ -11,8 +11,8 @@ export function ImageSlider({ images }) {
   }
 
   return (
-    <div className="container flex flex-col md:flex-row mx-auto h-172 aspect-2/3 md:aspect-3/2 overflow-hidden mt-16">
-      {images.map(({ image }, index) => (
+    <div className="container flex flex-col md:flex-row mx-auto h-172 aspect-2/3 md:aspect-3/2 overflow-hidden my-16">
+      {images?.map(({ image }, index) => (
         <Image
           key={index}
           width={1920}
