@@ -20,7 +20,7 @@ export function Hero({ data }) {
         <TypingAnimation words={data.typedText} />
         <button className="my-4">
           <Link
-            href="/#"
+            href="/#contact"
             className="text-black rounded-none px-8 py-3 bg-white font-semibold"
           >
             {data.buttonText}
