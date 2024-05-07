@@ -4,7 +4,7 @@ export function Card({ projectData }) {
   return (
     <div className="relative hover:cursor-pointer">
       <Image
-        src={projectData.mainImage}
+        src={projectData.coverImage}
         alt={"project1"}
         className="w-auto h-full aspect-3/4 object-cover !static"
         fill

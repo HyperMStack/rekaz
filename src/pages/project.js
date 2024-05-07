@@ -4,14 +4,14 @@ import { Hero } from "../components/project/Hero";
 import ImageSet from "../components/project/ImageSet";
 import { Info } from "../components/project/Info";
 import { InlineDescription } from "../components/project/InlineDescription";
-import { WideImage } from "../components/project/WideImage";
+// import { WideImage } from "../components/project/WideImage";
 import { navLinks, websiteData } from "@/data/data";
 import { ImageSlider } from "@/components/project/ImageSlider";
 import Head from "next/head";
 import { projects } from "@/data/data";
 
 export default function project() {
-  const projectData = projects[0];
+  const projectData = projects[1];
   return (
     <>
       <Head>
