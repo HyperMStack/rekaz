@@ -85,10 +85,9 @@ export const navLinks = [
 ];
 
 export const footerLinks = [
-  { id: 1, label: "Latest Projects", href: "#" },
+  { id: 1, label: "Latest Projects", href: "#projects" },
   { id: 2, label: "Privacy Policy", href: "#" },
   { id: 3, label: "Terms of Service", href: "#" },
-  { id: 4, label: "Contact", href: "#" },
 ];
 
 export const heroData = {

@@ -3,7 +3,7 @@ import { ContactField } from "./ContactField";
 
 export function ContactForm({}) {
   return (
-    <div className="m-5 text-[#0B0E3F]">
+    <div className="text-[#0B0E3F]">
       <div className="flex flex-col gap-5">
         <ContactField
           id={"name"}

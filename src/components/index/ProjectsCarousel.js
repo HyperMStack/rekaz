@@ -32,7 +32,7 @@ export function ProjectsCarousel({ projects }) {
   }, [emblaApi]);
 
   return (
-    <div className="my-16 container mx-auto">
+    <div className="my-16 container mx-auto" id="projects">
       <h2 className="text-center text-5xl my-16 font-semibold">
         Our Latest Projects
       </h2>
