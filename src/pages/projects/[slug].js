@@ -1,5 +1,4 @@
 import { LayoutWrapper } from "@/components/LayoutWrapper";
-import { Contact } from "@/components/index/Contact";
 import { Hero } from "@/components/project/Hero";
 import ImageSet from "@/components/project/ImageSet";
 import { Info } from "@/components/project/Info";
@@ -41,7 +40,6 @@ export default function project({ projectData }) {
         <InlineDescription inlineDescription={projectData.InlineDescription} />
         <ImageSlider images={projectData.sliderImages} />
         <ImageSet imageSet={projectData.imageSet_2} />
-        <Contact className={`mt-20`} />
       </LayoutWrapper>
     </>
   );
