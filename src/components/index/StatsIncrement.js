@@ -42,7 +42,7 @@ export function StatsIncrement() {
 
   return (
     <div
-      style={{ backgroundImage: `url(${bgImage})` }}
+      // style={{ backgroundImage: `url(${bgImage})` }}
       className={`h-[70vh] bg-bottom bg-no-repeat flex flex-col md:flex-row justify-between items-center p-5 md:p-10 max-w-[1350px] my-0 mx-auto`}
     >
       <div className="basis-1/2 md:basis-3/6 lg:basis-2/5 text-center md:text-start max-w-96 content-center">
