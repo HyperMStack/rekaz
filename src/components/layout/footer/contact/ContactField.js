@@ -15,6 +15,7 @@ export function ContactField({ id, label, icon, placeholder }) {
             id={id}
             className="w-full rounded-md pl-10 py-2 border border-gray-300 outline-2 outline-sky-600"
             placeholder={placeholder}
+            required
           />
         </div>
       </div>
