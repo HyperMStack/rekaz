@@ -1,10 +1,45 @@
 import Image from "next/image";
 import { ContactField } from "./ContactField";
+import { useState } from "react";
 
-export function ContactForm({}) {
+export function ContactForm() {
+  const [responseStatus, setResponseStatus] = useState(null);
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    const response = await fetch("/api/sendEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      setResponseStatus("success");
+    } else {
+      setResponseStatus("error");
+    }
+  }
+  if (responseStatus == "success") {
+    return <p>Thank you for contacting us</p>;
+  }
+
+  if (responseStatus == "error") {
+    return (
+      <p className="my-auto">
+        Failed to send email, Please try to refresh the page and try later
+      </p>
+    );
+  }
+
   return (
-    <div className="text-[#0B0E3F]">
-      <div className="flex flex-col gap-5">
+    <>
+      <p className="text-2xl my-3 lg:my-0 lg:mb-3 text-gray-700">
+        Fill up the form to contact us
+      </p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <ContactField
           id={"name"}
           label={"Name"}
@@ -51,6 +86,7 @@ export function ContactForm({}) {
             placeholder="Message"
             name="message"
             id="message"
+            required
           />
         </div>
         <div>
@@ -58,7 +94,7 @@ export function ContactForm({}) {
             Send Message
           </button>
         </div>
-      </div>
-    </div>
+      </form>
+    </>
   );
 }
