@@ -1,11 +1,11 @@
-import { contactInfo, socialLinks } from "../../../data/data";
+import { contactInfo, socialLinks } from "@/data/data";
 import { ContactLinksSet } from "./contact/ContactLinksSet";
 import { ContactForm } from "./contact/ContactForm";
 
 export function Contact() {
   return (
     <div
-      className="container grid grid-cols-2 px-4 mt-12 overflow-hidden"
+      className="max-w-[1350px] mx-auto container grid grid-cols-2 px-4 mt-12 overflow-hidden"
       id="contact"
     >
       <div className="col-span-2 md:col-span-1">

@@ -12,6 +12,7 @@ import {
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 import Head from "next/head";
 import Image from "next/image";
+import { Contact } from "@/components/index/Contact";
 
 export default function Home() {
   return (
@@ -86,6 +87,7 @@ export default function Home() {
         <ProjectsCarousel projects={projects} />
         <Sectors sectorsData={sectors} />
         <StatsIncrement />
+        <Contact />
       </LayoutWrapper>
     </div>
   );

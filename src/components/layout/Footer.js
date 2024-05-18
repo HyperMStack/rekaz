@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { footerLinks, websiteData } from "../../data/data";
-import { Contact } from "./footer/Contact";
 
 export function Footer() {
   return (
     <div className="max-w-[1350px] mx-auto lg:px-10">
-      <Contact />
       <footer className="text-sm relative mt-12">
         <div className="container mx-auto flex flex-col lg:flex-row items-center">
           <p className="text-center lg:text-left text-sm w-full">
