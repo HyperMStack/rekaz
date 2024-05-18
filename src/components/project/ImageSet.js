@@ -13,6 +13,7 @@ export default function ImageSet({ imageSet }) {
             src={set.image}
             alt={set.caption ? set.caption : "project"}
             fill
+            sizes="(max-width: 1200px) 100vw, (max-width: 768px) 50vw, 33vw"
           />
           {set.caption && (
             <p className="text-start mt-2 text-gray-600">{set.caption}</p>

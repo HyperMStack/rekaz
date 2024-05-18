@@ -9,6 +9,7 @@ export function Card({ projectData }) {
           alt={"project1"}
           className="w-auto h-full aspect-3/4 object-cover !static transition-transform duration-300 transform scale-110 hover:scale-100"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
         <div className="absolute bottom-0 -right-1 -translate-y-3/4 flex flex-row bg-white group/card">
           <p className="my-auto font-medium overflow-hidden relative pl-0 left-14 opacity-0 w-0 group-hover/card:pl-4 group-hover/card:opacity-100 group-hover/card:left-0 group-hover/card:w-full transition-all duration-300">
