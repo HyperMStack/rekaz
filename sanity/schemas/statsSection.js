@@ -1,18 +1,24 @@
 export default {
+  type: "object",
   name: "statsSection",
-  title: "Stats Description",
-  type: "document",
+  Title: "Stats Section",
   fields: [
     {
       name: "title",
-      title: "Title",
       type: "string",
+      title: "Title",
     },
     {
       name: "description",
-      title: "Description",
       type: "text",
+      title: "Description",
+      rows: 3,
     },
-    { name: "stats", title: "Stats", type: "array", of: [{ type: "stat" }] },
+    {
+      name: "stats",
+      type: "array",
+      title: "Stats",
+      of: [{ type: "singleStat" }],
+    },
   ],
 };
