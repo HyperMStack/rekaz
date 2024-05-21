@@ -1,29 +1,31 @@
-import contact from "./schemas/contact";
-import contactInfo from "./schemas/contactInfo";
-import footerLink from "./schemas/footerLink";
-import footerLinks from "./schemas/footerLinks";
-import hero from "./schemas/hero";
-import navLink from "./schemas/navLink";
-import navLinks from "./schemas/navLinks";
-import sectors from "./schemas/sectors";
-import siteSettings from "./schemas/siteSettings";
-import socialLink from "./schemas/socialLink";
-import stat from "./schemas/stat";
+import sectorData from "./schemas/sectorData";
+import singleStat from "./schemas/singleStat";
 import statsSection from "./schemas/statsSection";
+import sectorsSection from "./schemas/sectorsSection";
+import heroSection from "./schemas/heroSection";
+import homePage from "./schemas/homePage";
+import singleImageSet from "./schemas/singleImageSet";
+import inlineDescription from "./schemas/inlineDescription";
+import sliderImages from "./schemas/sliderImages";
+import projectPage from "./schemas/projectPage";
+import projectHeroSection from "./schemas/projectHeroSection";
+import projectInfo from "./schemas/projectInfo";
+import projectImageSet from "./schemas/projectImageSet";
 
 export const schema = {
   types: [
-    siteSettings,
-    hero,
-    sectors,
-    stat,
+    heroSection,
+    sectorData,
+    sectorsSection,
+    singleStat,
     statsSection,
-    contactInfo,
-    socialLink,
-    contact,
-    navLink,
-    navLinks,
-    footerLink,
-    footerLinks,
+    homePage,
+    projectHeroSection,
+    projectInfo,
+    singleImageSet,
+    projectImageSet,
+    inlineDescription,
+    sliderImages,
+    projectPage,
   ],
 };

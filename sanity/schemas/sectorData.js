@@ -1,13 +1,12 @@
 export default {
-  name: "sectors",
-  title: "Sectors",
-  type: "document",
+  type: "object",
+  name: "sectorData",
+  title: "Sector",
   fields: [
     {
       name: "image",
       title: "Image",
       type: "image",
-      Option: { hotspot: true },
     },
     {
       name: "title",
@@ -18,6 +17,7 @@ export default {
       name: "description",
       title: "Description",
       type: "text",
+      rows: 4,
     },
   ],
 };

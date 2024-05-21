@@ -9,6 +9,7 @@ import { structureTool } from "sanity/structure";
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
+import { documentInternationalization } from "@sanity/document-internationalization";
 
 const singelton = (S, name, id) => {
   return (
@@ -34,17 +35,19 @@ export default defineConfig({
         S.list()
           .title("Content")
           .items([
-            singelton(S, "Site Settings", "siteSettings"),
-            singelton(S, "Home Page's Main", "hero"),
-            singelton(S, "Stats Section", "statsSection"),
-            S.documentTypeListItem("sectors").title("Sectors"),
-            singelton(S, "Contact Info", "contact"),
-            singelton(S, "Navigation Links", "navLinks"),
-            singelton(S, "Footer Links", "footerLinks"),
+            singelton(S, "Home Page", "homePage"),
+            S.documentTypeListItem("projectPage").title("Projects"),
           ]),
     }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    documentInternationalization({
+      supportedLanguages: [
+        { id: "ar", title: "Arabic", isDefault: true },
+        { id: "en", title: "English" },
+      ],
+      schemaTypes: ["homePage", "projectPage"],
+    }),
   ],
 });
