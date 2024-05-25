@@ -39,3 +39,6 @@ next-env.d.ts
 
 #sanity build files
 /.sanity/
+
+#python file
+git-filter-repo
