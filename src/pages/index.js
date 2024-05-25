@@ -16,7 +16,7 @@ import { Contact } from "@/components/index/Contact";
 
 export default function Home() {
   return (
-    <div className="relative overflow-hidden">
+    <>
       <Head>
         <title>Rekaz Development</title>
         <meta
@@ -33,62 +33,64 @@ export default function Home() {
         />
         <meta property="og:site_name" content={`Rekaz Development`} />
       </Head>
-      {/* sm screens */}
-      <Image
-        width={350}
-        height={350}
-        src={"/images/svg/star-color.svg"}
-        alt="feature"
-        className="md:hidden absolute top-[calc(50%-400px)] right-0 translate-x-1/2 opacity-50"
-      />
-      <Image
-        width={350}
-        height={350}
-        src={"/images/svg/star-gray.svg"}
-        alt="feature"
-        className="md:hidden absolute top-[calc(50%+200px)] left-0 -translate-x-1/2"
-      />
-      {/* md screens */}
-      <Image
-        width={600}
-        height={600}
-        src={"/images/svg/star-color.svg"}
-        alt="feature"
-        className="hidden md:block lg:hidden absolute top-[calc(50%-200px)] right-0 translate-x-1/2 opacity-50"
-      />
-      <Image
-        width={600}
-        height={600}
-        src={"/images/svg/star-gray.svg"}
-        alt="feature"
-        className="hidden md:block lg:hidden absolute top-[calc(50%+400px)] left-0 -translate-x-1/2"
-      />
-      {/* lg screens */}
-      <Image
-        width={800}
-        height={800}
-        src={"/images/svg/star-color.svg"}
-        alt="feature"
-        className="hidden lg:block absolute top-[calc(50%-100px)] right-0 translate-x-1/2 opacity-50"
-      />
-      <Image
-        width={800}
-        height={800}
-        src={"/images/svg/star-gray.svg"}
-        alt="feature"
-        className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
-      />
-      <LayoutWrapper
-        logo={websiteData.logo}
-        navItems={navLinks}
-        showNav={false}
-      >
-        <Hero data={heroData} />
-        <ProjectsCarousel projects={projects} />
-        <Sectors sectorsData={sectors} />
-        <StatsIncrement />
-        <Contact />
-      </LayoutWrapper>
-    </div>
+      <div className="relative overflow-hidden">
+        {/* sm screens */}
+        <Image
+          width={350}
+          height={350}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="md:hidden absolute top-[calc(50%-400px)] right-0 translate-x-1/2 opacity-50"
+        />
+        <Image
+          width={350}
+          height={350}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="md:hidden absolute top-[calc(50%+200px)] left-0 -translate-x-1/2"
+        />
+        {/* md screens */}
+        <Image
+          width={600}
+          height={600}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="hidden md:block lg:hidden absolute top-[calc(50%-200px)] right-0 translate-x-1/2 opacity-50"
+        />
+        <Image
+          width={600}
+          height={600}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="hidden md:block lg:hidden absolute top-[calc(50%+400px)] left-0 -translate-x-1/2"
+        />
+        {/* lg screens */}
+        <Image
+          width={800}
+          height={800}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="hidden lg:block absolute top-[calc(50%-100px)] right-0 translate-x-1/2 opacity-50"
+        />
+        <Image
+          width={800}
+          height={800}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
+        />
+        <LayoutWrapper
+          logo={websiteData.logo}
+          navItems={navLinks}
+          showNav={false}
+        >
+          <Hero data={heroData} />
+          <ProjectsCarousel projects={projects} />
+          <Sectors sectorsData={sectors} />
+          <StatsIncrement />
+          <Contact />
+        </LayoutWrapper>
+      </div>
+    </>
   );
 }
