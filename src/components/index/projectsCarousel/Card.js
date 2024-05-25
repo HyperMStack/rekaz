@@ -11,8 +11,8 @@ export function Card({ projectData }) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
-        <div className="absolute bottom-0 -right-1 -translate-y-3/4 flex flex-row bg-white group/card">
-          <p className="my-auto font-medium overflow-hidden relative pl-0 left-14 opacity-0 w-0 group-hover/card:pl-4 group-hover/card:opacity-100 group-hover/card:left-0 group-hover/card:w-full transition-all duration-300">
+        <div className="absolute bottom-0 -end-1 -translate-y-3/4 flex flex-row bg-white group/card">
+          <p className="my-auto font-medium overflow-hidden relative ps-0 start-14 opacity-0 w-0 group-hover/card:ps-4 group-hover/card:opacity-100 group-hover/card:start-0 group-hover/card:w-full transition-all duration-300">
             View Project
           </p>
           <Image

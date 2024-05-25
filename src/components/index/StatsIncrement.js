@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { statsData } from "../../data/data";
 
-export function StatsIncrement() {
+export function StatsIncrement({ statsData }) {
+  console.log("stats", statsData);
   const sectionsRef = useRef([]);
 
   function startCount(sect, goal) {
@@ -38,8 +38,6 @@ export function StatsIncrement() {
     return () => observer.disconnect();
   }, []);
 
-  const bgImage = "/images/bg.jpg";
-
   return (
     <div
       // style={{ backgroundImage: `url(${bgImage})` }}
@@ -47,17 +45,13 @@ export function StatsIncrement() {
     >
       <div className="basis-1/2 md:basis-3/6 lg:basis-2/5 text-center md:text-start max-w-96 content-center">
         <h2 className="text-2xl md:text-5xl font-bold mb-8">
-          Building for the best
+          {statsData.title}
         </h2>
-        <p className="text-base md:text-lg">
-          To explore and go after new ways to build, we’ve gathered the people,
-          innovations, and partnerships that can anticipate and overcome new
-          challenges.
-        </p>
+        <p className="text-base md:text-lg">{statsData.description}</p>
       </div>
       <div className="hidden md:block" />
       <div className="basis-full md:basis-2/6 lg:basis-1/5 content-center">
-        {statsData.map((item, i) => (
+        {statsData.stats.map((item, i) => (
           <div className="my-10" key={i}>
             <h3 className="text-2xl md:text-3xl font-bold">
               <span
@@ -68,7 +62,7 @@ export function StatsIncrement() {
               </span>
               {item.symbol}
             </h3>
-            <p className="text-sm md:text-base">{item.text}</p>
+            <p className="text-sm md:text-base">{item.description}</p>
           </div>
         ))}
       </div>

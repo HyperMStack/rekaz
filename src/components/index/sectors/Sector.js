@@ -1,11 +1,7 @@
-import Image from "next/image";
-
 export function Sector({ icon, title, text }) {
   return (
     <div className="m-4 max-w-96 text-start">
-      <Image
-        width={25}
-        height={25}
+      <img
         src={icon}
         alt={title}
         className="mb-4 aspect-square w-16 md:w-20 lg:w-32"

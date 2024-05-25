@@ -8,7 +8,7 @@ export function ContactButton({ icon, text, link }) {
       className="inline-flex items-center justify-center ps-0 pe-4 py-2 border-2 border-transparent text-sm font-medium rounded-md text-gray-700 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
     >
       <Image width={24} height={24} src={icon} alt="" />
-      <span className="ml-2">{text}</span>
+      <span className="ms-2">{text}</span>
     </Link>
   );
 }

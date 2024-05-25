@@ -2,12 +2,17 @@ import { useEffect, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Card } from "./projectsCarousel/Card";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export function ProjectsCarousel({ projects }) {
-  const options = { loop: true };
+  const router = useRouter();
+
+  const options = {
+    loop: true,
+    direction: router.locale === "ar" ? "rtl" : "ltr",
+  };
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const autoScrollInterval = useRef(null);
-
   useEffect(() => {
     if (!emblaApi) return;
 
@@ -37,11 +42,11 @@ export function ProjectsCarousel({ projects }) {
         Our Latest Projects
       </h2>
       <div className="embla overflow-hidden" ref={emblaRef}>
-        <div className="embla__container flex -ml-8 px-4">
+        <div className="embla__container flex -ms-8 px-4">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="embla__slide flex-grow-0 flex-shrink-0 w-full md:w-1/2 lg:w-1/3 text-center pl-8"
+              className="embla__slide flex-grow-0 flex-shrink-0 w-full md:w-1/2 lg:w-1/3 text-center ps-8"
             >
               <Link href={`/projects/${project.slug}`}>
                 <Card projectData={project} />

@@ -13,8 +13,44 @@ import { LayoutWrapper } from "@/components/LayoutWrapper";
 import Head from "next/head";
 import Image from "next/image";
 import { Contact } from "@/components/index/Contact";
+import { client } from "../../sanity/lib/client";
+import { useLocale } from "next-intl";
 
-export default function Home() {
+export async function getStaticProps(context) {
+  // const locale = useLocale();
+  const { locale } = context;
+  // console.log("context", locale);
+
+  if (locale == "en") {
+    const data = await client.fetch('*[_type == "homePage" && language=="en"]');
+    return {
+      props: {
+        data,
+      },
+      revalidate: 10, // In seconds
+    };
+  } else if (locale == "ar") {
+    const data = await client.fetch('*[_type == "homePage" && language=="ar"]');
+    return {
+      props: {
+        data,
+      },
+      revalidate: 10, // In seconds
+    };
+  } else {
+    const data = {};
+    return {
+      props: {
+        data,
+      },
+      revalidate: 10, // In seconds
+    };
+  }
+}
+
+export default function Home({ data }) {
+  // console.log("data", data);
+  const { heroSection, sectorsSection, statsSection } = data[0];
   return (
     <>
       <Head>
@@ -84,10 +120,10 @@ export default function Home() {
           navItems={navLinks}
           showNav={false}
         >
-          <Hero data={heroData} />
+          <Hero data={heroSection} />
           <ProjectsCarousel projects={projects} />
-          <Sectors sectorsData={sectors} />
-          <StatsIncrement />
+          <Sectors sectorsData={sectorsSection} />
+          <StatsIncrement statsData={statsSection} />
           <Contact />
         </LayoutWrapper>
       </div>

@@ -1,15 +1,21 @@
+import { urlForImage } from "../../../sanity/lib/image";
 import { Sector } from "./sectors/Sector";
 
 export function Sectors({ sectorsData }) {
+  const { _type, ...sectorsWithoutType } = sectorsData;
+  const sectorsArray = Object.keys(sectorsWithoutType).map((key) => ({
+    key,
+    ...sectorsWithoutType[key],
+  }));
   return (
     <div className="my-16 px-4 rounded-lg">
       <h2 className="text-center text-5xl font-bold py-16">Our Sectors</h2>
       <div className="flex flex-wrap md:flex-nowrap justify-center">
-        {sectorsData.map((sector, i) => (
+        {sectorsArray?.map((sector, i) => (
           <Sector
-            icon={sector.icon}
+            icon={urlForImage(sector.image)}
             title={sector.title}
-            text={sector.text}
+            text={sector.description}
             key={i}
           />
         ))}
