@@ -7,6 +7,25 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeInRightToLeft: {
+          "0%": { opacity: "0", transform: "translateX(15%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeOutLeftToRight: {
+          "0%": { opacity: "1", transform: "translateX(0)" },
+          "100%": { opacity: "0", transform: "translateX(-15%)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 1s ease-in-out",
+        fadeInRightToLeft: "fadeInRightToLeft 1s ease-in-out",
+        fadeOutLeftToRight: "fadeOutLeftToRight 1s ease-in-out",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

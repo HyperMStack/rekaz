@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 
 export function StatsIncrement({ statsData }) {
-  console.log("stats", statsData);
   const sectionsRef = useRef([]);
 
   function startCount(sect, goal) {

@@ -2,8 +2,12 @@ import Link from "next/link";
 import { TypingAnimation } from "./hero/TypingAnimation";
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
+import FadingWords from "./hero/FadingWords";
+import { useRouter } from "next/router";
 
 export function Hero({ data }) {
+  const router = useRouter();
+
   return (
     <div className="relative">
       <Image
@@ -17,8 +21,11 @@ export function Hero({ data }) {
       ></div>
       <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8">
         <b className="text-6xl md:text-8xl text-white"> {data.title}</b>
-
-        <TypingAnimation words={data.changingWords} />
+        {router.locale == "ar" ? (
+          <FadingWords words={data.changingWords} />
+        ) : (
+          <TypingAnimation words={data.changingWords} />
+        )}
         <button className="my-4">
           <Link
             href={`/${data.buttonLink}`}
