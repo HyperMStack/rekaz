@@ -3,16 +3,31 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: 'Madani';
+  src: url('/fonts/Madani-Arabic-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* * {
+  font-family: "Montserrat", sans-serif;
+} */
+
 html {
      --scroll-behavior: smooth!important;
      scroll-behavior: smooth!important;
 
      scrollbar-width: thin; /* "auto" or "thin" */
      scrollbar-color: #888 #f1f1f1; /* thumb and track color */
-     }
+}
 
-* {
-  font-family: "Montserrat", sans-serif;
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body.ar {
+  font-family: 'Madani', sans-serif;
 }
 
 /* styles/globals.css */

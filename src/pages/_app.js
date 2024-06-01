@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }) {
   useEffect(() => {
     // Set the dir attribute on the body based on the locale
     document.body.dir = router.locale === "ar" ? "rtl" : "ltr";
+    document.body.className = router.locale === "ar" ? "ar" : "en";
   }, [router.locale]);
   return (
     <NextIntlClientProvider locale={router.locale}>
