@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import setupEventListeners from "./slideshowAssets/main";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Slideshow({ images }) {
+  const router = useRouter();
+  const direction = router.locale == "ar" ? "rtl" : "ltr";
   useEffect(() => {
     setupEventListeners("polygons-fall");
   }, []);
@@ -416,7 +419,7 @@ export default function Slideshow({ images }) {
       `}</style>
       <div className="!h-screen w-full object-cover !static">
         {/* prettier-ignore */}
-        <div className={`swiper`}>
+        <div dir={direction} className={`swiper`}>
         <div className={`swiper-wrapper`}>
           {images.map((image, index) => (
             <div className={`swiper-slide`} key={index}>
