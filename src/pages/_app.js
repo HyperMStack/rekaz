@@ -1,3 +1,4 @@
+import useScrollbar from "@/hooks/useScrollbar";
 import "@/styles/globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { useRouter } from "next/router";
@@ -10,6 +11,8 @@ export default function App({ Component, pageProps }) {
     document.body.dir = router.locale === "ar" ? "rtl" : "ltr";
     document.body.className = router.locale === "ar" ? "ar" : "en";
   }, [router.locale]);
+  useScrollbar();
+
   return (
     <NextIntlClientProvider locale={router.locale}>
       <Component {...pageProps} />

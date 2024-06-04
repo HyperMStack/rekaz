@@ -4,22 +4,15 @@ import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import FadingWords from "./hero/FadingWords";
 import { useRouter } from "next/router";
+import Slideshow from "./hero/Slideshow";
 
-export function Hero({ data }) {
+export function Hero({ data, images }) {
   const router = useRouter();
 
   return (
     <div className="relative">
-      <Image
-        src={urlForImage(data.bgImage)}
-        alt={data.buttonText}
-        className="!h-screen w-full object-cover !static"
-        fill
-      />
-      <div
-        className={`absolute inset-0 bg-gradient-to-b from-[#062c3b] via-transparent to-transparent`}
-      ></div>
-      <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8">
+      <Slideshow images={images} />
+      <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8 z-10">
         <b className="text-6xl md:text-8xl text-white"> {data.title}</b>
         {router.locale == "ar" ? (
           <FadingWords words={data.changingWords} />

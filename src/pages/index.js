@@ -14,12 +14,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { Contact } from "@/components/index/Contact";
 import { client } from "../../sanity/lib/client";
-import { useLocale } from "next-intl";
 
 export async function getStaticProps(context) {
-  // const locale = useLocale();
   const { locale } = context;
-  // console.log("context", locale);
 
   if (locale == "en") {
     const data = await client.fetch('*[_type == "homePage" && language=="en"]');
@@ -49,8 +46,14 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ data }) {
-  // console.log("data", data);
   const { heroSection, sectorsSection, statsSection } = data[0];
+  const images = [
+    "/images/project2/1.webp",
+    "/images/project2/2.webp",
+    "/images/project2/3.webp",
+    "/images/project2/4.webp",
+    "/images/project2/1.webp",
+  ];
   return (
     <>
       <Head>
@@ -120,7 +123,7 @@ export default function Home({ data }) {
           navItems={navLinks}
           showNav={false}
         >
-          <Hero data={heroSection} />
+          <Hero data={heroSection} images={images} />
           <ProjectsCarousel projects={projects} />
           <Sectors sectorsData={sectorsSection} />
           <StatsIncrement statsData={statsSection} />

@@ -10,41 +10,27 @@
   font-style: normal;
 }
 
-/* * {
-  font-family: "Montserrat", sans-serif;
-} */
-
-html {
-     --scroll-behavior: smooth!important;
-     scroll-behavior: smooth!important;
-
-     scrollbar-width: thin; /* "auto" or "thin" */
-     scrollbar-color: #888 #f1f1f1; /* thumb and track color */
-}
-
-body {
+html[lang="en"] {
   font-family: 'Montserrat', sans-serif;
 }
 
-body.ar {
-  font-family: 'Madani', sans-serif;
+html[lang="ar"] {
+  font-family: 'Madani', sans-serif !important;
 }
 
-/* styles/globals.css */
-/* Modern scrollbar styles */
-::-webkit-scrollbar {
-     width: 10px; /* Width of the entire scrollbar */
-   }
-   
-   ::-webkit-scrollbar-track {
-     background: #f1f1f1; /* Color of the tracking area */
-   }
-   
-   ::-webkit-scrollbar-thumb {
-     background: #888; /* Color of the scroll thumb */
-   }
-   
-   ::-webkit-scrollbar-thumb:hover {
-     background: #555; /* Color of the scroll thumb on hover */
-   }
+/* Initially hide the scrollbar */
+html {
+  scrollbar-width: none;
+  --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
+  scrollbar-color: transparent transparent;
+  overflow-y: auto;
+  scrollbar-gutter: auto;
+}
+
+/* Show scrollbar when scrolling */
+/* html.on-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #aaa transparent;
+} */
 
