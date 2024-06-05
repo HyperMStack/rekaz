@@ -18,35 +18,36 @@ import { client } from "../../sanity/lib/client";
 export async function getStaticProps(context) {
   const { locale } = context;
 
+  let homePageData = [];
+  let projectPageData = [];
+
   if (locale == "en") {
-    const data = await client.fetch('*[_type == "homePage" && language=="en"]');
-    return {
-      props: {
-        data,
-      },
-      revalidate: 10, // In seconds
-    };
+    homePageData = await client.fetch(
+      '*[_type == "homePage" && language=="en"]'
+    );
+    projectPageData = await client.fetch(
+      '*[_type == "projectPage" && language == "en"]{title,projectHero,slug}'
+    );
   } else if (locale == "ar") {
-    const data = await client.fetch('*[_type == "homePage" && language=="ar"]');
-    return {
-      props: {
-        data,
-      },
-      revalidate: 10, // In seconds
-    };
-  } else {
-    const data = {};
-    return {
-      props: {
-        data,
-      },
-      revalidate: 10, // In seconds
-    };
+    homePageData = await client.fetch(
+      '*[_type == "homePage" && language=="ar"]'
+    );
+    projectPageData = await client.fetch(
+      '*[_type == "projectPage" && language == "ar"]{title,projectHero,slug}'
+    );
   }
+
+  return {
+    props: {
+      homePageData: homePageData[0] || {},
+      projectPageData,
+    },
+    revalidate: 10, // In seconds
+  };
 }
 
-export default function Home({ data }) {
-  const { heroSection, sectorsSection, statsSection } = data[0];
+export default function Home({ homePageData, projectPageData }) {
+  const { heroSection, sectorsSection, statsSection } = homePageData;
   const images = [
     "/images/project2/1.webp",
     "/images/project2/2.webp",
@@ -124,7 +125,7 @@ export default function Home({ data }) {
           showNav={false}
         >
           <Hero data={heroSection} images={images} />
-          <ProjectsCarousel projects={projects} />
+          <ProjectsCarousel projects={projectPageData} />
           <Sectors sectorsData={sectorsSection} />
           <StatsIncrement statsData={statsSection} />
           <Contact />

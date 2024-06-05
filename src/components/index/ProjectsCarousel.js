@@ -6,10 +6,11 @@ import { useRouter } from "next/router";
 
 export function ProjectsCarousel({ projects }) {
   const router = useRouter();
+  const language = router.locale;
 
   const options = {
     loop: true,
-    direction: router.locale === "ar" ? "rtl" : "ltr",
+    direction: language === "ar" ? "rtl" : "ltr",
   };
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const autoScrollInterval = useRef(null);
@@ -39,7 +40,7 @@ export function ProjectsCarousel({ projects }) {
   return (
     <div className="my-16 container mx-auto" id="projects">
       <h2 className="text-center text-5xl my-16 font-semibold">
-        Our Latest Projects
+        {language == "ar" ? "آخر المشاريع" : "Our Latest Projects"}
       </h2>
       <div className="embla overflow-hidden" ref={emblaRef}>
         <div className="embla__container flex -ms-8 px-4">
@@ -48,8 +49,8 @@ export function ProjectsCarousel({ projects }) {
               key={index}
               className="embla__slide flex-grow-0 flex-shrink-0 w-full md:w-1/2 lg:w-1/3 text-center ps-8"
             >
-              <Link href={`/projects/${project.slug}`}>
-                <Card projectData={project} />
+              <Link href={`/projects/${project.slug.current}`}>
+                <Card projectData={project} language={language} />
               </Link>
             </div>
           ))}

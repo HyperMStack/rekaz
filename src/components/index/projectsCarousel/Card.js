@@ -1,19 +1,21 @@
 import Image from "next/image";
+import { urlForImage } from "../../../../sanity/lib/image";
 
-export function Card({ projectData }) {
+export function Card({ projectData, language }) {
+  console.log("project", projectData);
   return (
     <div className="relative hover:cursor-pointer">
       <div className="group overflow-hidden">
         <Image
-          src={projectData.coverImage}
-          alt={"project1"}
+          src={urlForImage(projectData.projectHero.image)}
+          alt={projectData.title}
           className="w-auto h-full aspect-3/4 object-cover !static transition-transform duration-300 transform scale-110 hover:scale-100"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
         <div className="absolute bottom-0 -end-1 -translate-y-3/4 flex flex-row bg-white group/card">
           <p className="my-auto font-medium overflow-hidden relative ps-0 start-14 opacity-0 w-0 group-hover/card:ps-4 group-hover/card:opacity-100 group-hover/card:start-0 group-hover/card:w-full transition-all duration-300">
-            View Project
+            {language == "ar" ? "تصفح المشروع" : "View Project"}
           </p>
           <Image
             src="/images/svg/arrow-right.svg"
