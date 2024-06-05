@@ -7,8 +7,10 @@ import { navLinks, projects as localProjects, websiteData } from "@/data/data";
 import { ImageSlider } from "@/components/project/ImageSlider";
 import Head from "next/head";
 import Image from "next/image";
+import { client } from "../../../sanity/lib/client";
 
 export default function project({ projectData }) {
+  const locale = projectData.language;
   return (
     <div className="relative overflow-hidden">
       <Head>
@@ -80,25 +82,29 @@ export default function project({ projectData }) {
         navItems={navLinks}
         showNav={false}
       >
-        <Hero image={projectData.coverImage} />
-        <Info projectInfo={projectData} />
-        <ImageSet imageSet={projectData.imageSet_1} />
-        <InlineDescription inlineDescription={projectData.InlineDescription} />
-        <ImageSlider images={projectData.sliderImages} />
-        <ImageSet imageSet={projectData.imageSet_2} />
+        <Hero image={projectData.projectHero.image} />
+        <Info
+          projectInfo={projectData.projectInformation}
+          projectTitle={projectData.title}
+          language={locale}
+        />
+        <ImageSet imageSet={projectData.projectImageSet} />
+        <InlineDescription
+          inlineDescription={projectData.projectInlineDescription}
+        />
+        <ImageSlider images={projectData.projectSliderImages.images} />
+        {/* <ImageSet imageSet={projectData.imageSet_2} /> */}
       </LayoutWrapper>
     </div>
   );
 }
 
-export async function getStaticProps({ params }) {
-  // const res = await fetch('https://.../posts')
-  // const posts = await res.json()
-
-  // Find the project data based on the slug
-  const projectData = localProjects.find(
-    (project) => project.slug === params.slug
-  );
+export async function getStaticProps({ params, locale }) {
+  const query = `*[_type == "projectPage" && language == $locale && slug.current == $slug][0]`;
+  const projectData = await client.fetch(query, {
+    locale: locale === "ar" ? "ar" : "en",
+    slug: params.slug,
+  });
 
   if (!projectData) {
     return {
@@ -110,37 +116,18 @@ export async function getStaticProps({ params }) {
     props: {
       projectData,
     },
-    // Re-generate every 10 seconds (adjust as needed)
     revalidate: 10,
   };
 }
 
-// export async function getStaticProps() {
-
-//   return {
-//     props: {
-//       localProjects,
-//     },
-//     // Next.js will attempt to re-generate the page:
-//     // - When a request comes in
-//     // - At most once every 10 seconds
-//     revalidate: 10, // In seconds
-//   };
-// }
-
 export async function getStaticPaths() {
-  // const res = await fetch('https://.../posts')
-  // const posts = await res.json()
-
-  //    const projects = projects
-
-  // Get the paths we want to pre-render based on posts
-  const paths = localProjects.map((project) => ({
-    params: { slug: project.slug },
+  const projects = await client.fetch(
+    `*[_type == "projectPage"]{slug, language}`
+  );
+  const paths = projects.map((project) => ({
+    params: { slug: project.slug.current },
+    locale: project.language,
   }));
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: 'blocking' } will server-render pages
-  // on-demand if the path doesn't exist.
   return { paths, fallback: "blocking" };
 }

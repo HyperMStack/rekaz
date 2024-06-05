@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { urlForImage } from "../../../sanity/lib/image";
 
 export function ImageSlider({ images }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -39,7 +40,7 @@ export function ImageSlider({ images }) {
 
   return (
     <div className="container flex flex-col md:flex-row mx-auto h-172 aspect-2/3 md:aspect-3/2 lg:aspect-3/2 overflow-hidden my-16">
-      {images?.map(({ image }, index) => (
+      {images?.map((image, index) => (
         <Image
           key={index}
           width={1920}
@@ -48,7 +49,7 @@ export function ImageSlider({ images }) {
             transition: "all 0.4s cubic-bezier(0.32, 0, 0.67, 0)",
           }}
           className={`img w-full md:h-full object-cover overflow-hidden border md:border-2 border-transparent cursor-pointer ${index === activeImageIndex ? "h-[300%] md:w-[300%]" : "h-2/12 md:w-2/12 opacity-80"}`}
-          src={image}
+          src={urlForImage(image)}
           alt={`slide-${index}`}
           onClick={toggleActiveImage(index)}
         />
