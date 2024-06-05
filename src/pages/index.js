@@ -128,7 +128,7 @@ export default function Home({ homePageData, projectPageData }) {
           <ProjectsCarousel projects={projectPageData} />
           <Sectors sectorsData={sectorsSection} />
           <StatsIncrement statsData={statsSection} />
-          <Contact />
+          <Contact language={homePageData.language} />
         </LayoutWrapper>
       </div>
     </>

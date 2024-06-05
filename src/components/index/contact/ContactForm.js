@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ContactField } from "./ContactField";
 import { useState } from "react";
 
-export function ContactForm() {
+export function ContactForm({ language }) {
   const [responseStatus, setResponseStatus] = useState(null);
   async function handleSubmit(event) {
     event.preventDefault();
@@ -29,7 +29,9 @@ export function ContactForm() {
   if (responseStatus == "error") {
     return (
       <p className="my-auto">
-        Failed to send email, Please try to refresh the page and try later
+        {language == "ar"
+          ? "عذرا حدث خطأ بإرسال الرسالة، يرجى معاودة المحاولة لاحقا"
+          : "Failed to send email, Please try to refresh the page and try later"}
       </p>
     );
   }
@@ -37,12 +39,14 @@ export function ContactForm() {
   return (
     <>
       <p className="text-2xl my-3 lg:my-0 lg:mb-3 text-gray-700">
-        Fill up the form to contact us
+        {language == "ar"
+          ? "يمكنك تعبئة الفورم التالي لإرسال رسالة لنا وسنتواصل معك"
+          : "Fill up the form to contact us"}
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <ContactField
           id={"name"}
-          label={"Name"}
+          label={language == "ar" ? "الاسم" : "Name"}
           icon={
             <Image
               width={16}
@@ -51,11 +55,11 @@ export function ContactForm() {
               alt="name"
             />
           }
-          placeholder={"Your Name"}
+          placeholder={language == "ar" ? "اسمك" : "Your Name"}
         />
         <ContactField
           id={"phone"}
-          label={"Phone Number"}
+          label={language == "ar" ? "رقم الجوال" : "Phone Number"}
           icon={
             <Image
               width={16}
@@ -64,11 +68,11 @@ export function ContactForm() {
               alt="phone"
             />
           }
-          placeholder={"Your Phone Number"}
+          placeholder={language == "ar" ? "رقم جوالك" : "Your Phone Number"}
         />
         <ContactField
           id={"email"}
-          label={"Email"}
+          label={language == "ar" ? "البريد الإلكتروني" : "Email"}
           icon={
             <Image
               width={16}
@@ -77,21 +81,24 @@ export function ContactForm() {
               alt="email"
             />
           }
-          placeholder={"Your Email"}
+          placeholder={language == "ar" ? "بريدك الإلكتروني" : "Your Email"}
         />
         <div>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="message">
+            {language == "ar" ? "الرسالة" : "Message"}
+          </label>
           <textarea
-            className="box-border outline-2 outline-sky-600 border border-gray-300  rounded-md w-full p-2"
-            placeholder="Message"
+            className="box-border outline-2 outline-sky-600 border border-gray-300  rounded-md w-full p-2 mt-2"
+            placeholder={language == "ar" ? "الرسالة" : "Message"}
             name="message"
             id="message"
             required
+            rows={3}
           />
         </div>
         <div>
           <button className="bg-gray-600 text-white px-5 py-2 w-full md:w-auto rounded-none">
-            Send Message
+            {language == "ar" ? "إرسال الرسالة" : "Send Message"}
           </button>
         </div>
       </form>

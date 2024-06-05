@@ -7,7 +7,6 @@ import Image from "next/image.js";
 export const Navbar = ({ navItems, logo, showNav }) => {
   const [isOpen, setIsOpen] = useState(false);
   function toggleCollapse() {
-    console.log(isOpen);
     setIsOpen(!isOpen);
   }
 

@@ -2,7 +2,6 @@ import Image from "next/image";
 import { urlForImage } from "../../../../sanity/lib/image";
 
 export function Card({ projectData, language }) {
-  console.log("project", projectData);
   return (
     <div className="relative hover:cursor-pointer">
       <div className="group overflow-hidden">
