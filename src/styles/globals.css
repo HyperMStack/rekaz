@@ -34,3 +34,20 @@ html {
   scrollbar-color: #aaa transparent;
 } */
 
+.slide-in-up {
+  transform: translateY(-100%);
+}
+
+.slide-out-up {
+  transform: translateY(100%);
+}
+
+.slide-in-down {
+  transform: translateY(100%);
+}
+
+.slide-out-down {
+  transform: translateY(-100%);
+}
+
+

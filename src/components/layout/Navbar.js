@@ -3,12 +3,10 @@ import { DesktopNav } from "./navbar/DesktopNav.js";
 import { MobileNav } from "./navbar/MobileNav";
 import { useState } from "react";
 import Image from "next/image.js";
+import LanguageSwitcher from "./LanguageSwitcher.js";
 
 export const Navbar = ({ navItems, logo, showNav }) => {
   const [isOpen, setIsOpen] = useState(false);
-  function toggleCollapse() {
-    setIsOpen(!isOpen);
-  }
 
   return (
     <div className="absolute top-0 left-0 z-10 w-full">
@@ -17,7 +15,7 @@ export const Navbar = ({ navItems, logo, showNav }) => {
         {showNav && (
           <div className="flex-1 md:flex-auto -ml-2 flex md:hidden absolute top-3/4 translate-y-1/2 left-[10%]">
             <button
-              onClick={toggleCollapse}
+              onClick={setIsOpen(!isOpen)}
               className="text-white hover:bg-transparent active:bg-transparent"
             >
               {isOpen ? (
@@ -51,6 +49,7 @@ export const Navbar = ({ navItems, logo, showNav }) => {
               className={`z-10 ${showNav ? "h-[140px]" : "w-auto h-[140px] md:h-[200px]"}`}
             />
           </Link>
+          <LanguageSwitcher />
           {showNav && (
             <div className="flex-1 hidden md:flex items-center justify-center">
               <DesktopNav navItems={navItems} />

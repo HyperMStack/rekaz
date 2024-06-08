@@ -9,7 +9,7 @@ export function Hero({ image }) {
           backgroundImage: `url(${urlForImage(image)})`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#062c3b] via-transparent to-transparent"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-[#062c3b] via-transparent to-transparent"></div> */}
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
-export default function Slideshow({ images }) {
+export default function FullScreenCarousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const alt = "image";
   const slices = 7;

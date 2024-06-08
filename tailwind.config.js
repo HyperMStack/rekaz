@@ -53,6 +53,9 @@ module.exports = {
         512: "128rem",
         1024: "256rem",
       },
+      width: {
+        "1/10": "10%", // Adds a custom width class for the slices
+      },
     },
   },
   plugins: [],
