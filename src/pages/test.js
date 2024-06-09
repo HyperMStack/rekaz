@@ -1,5 +1,7 @@
+import { LayoutWrapper } from "@/components/LayoutWrapper";
 import FullScreenCarousel from "@/components/test/FullScreenCarousel";
 import SliderComponent from "@/components/test/SliderComponent";
+import { navLinks, websiteData } from "@/data/data";
 
 function test() {
   const images = [
@@ -17,9 +19,15 @@ function test() {
     "/test-images/03.jpg",
   ];
   return (
-    <div>
-      <FullScreenCarousel images={images} />
-    </div>
+    <LayoutWrapper
+      logo={websiteData.logo.hor}
+      navItems={navLinks}
+      showNav={false}
+    >
+      <div className="flex items-center justify-center overflow-hidden">
+        <FullScreenCarousel images={images} />
+      </div>
+    </LayoutWrapper>
   );
 }
 

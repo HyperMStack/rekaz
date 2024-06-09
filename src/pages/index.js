@@ -120,7 +120,7 @@ export default function Home({ homePageData, projectPageData }) {
           className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
         />
         <LayoutWrapper
-          logo={websiteData.logo}
+          logo={websiteData.logo.hor}
           navItems={navLinks}
           showNav={false}
         >

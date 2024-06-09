@@ -6,7 +6,7 @@ export function Footer() {
     <div className="max-w-[1350px] mx-auto lg:px-10">
       <footer className="text-sm relative mt-12">
         <div className="container mx-auto flex flex-col lg:flex-row items-center">
-          <p className="text-center lg:text-left text-sm w-full">
+          <p className="text-center lg:text-start text-sm w-full">
             &copy; 2023{" "}
             <Link href="/" className="hover:underline">
               {websiteData.websiteName}

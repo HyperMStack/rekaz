@@ -5,73 +5,71 @@ import { useState } from "react";
 import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 
-export const Navbar = ({ navItems, logo, showNav }) => {
+export const Navbar = ({ navItems, logo, direction }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="absolute top-0 left-0 z-10 w-full">
-      <div className="min-h-[60px] py-2 px-4 md:px-40 items-center relative">
+    <div className="absolute top-0 start-0 z-10 w-full">
+      <div className="flex py-2 items-center justify-around relative w-full m-auto">
         {/* mobileNav */}
-        {showNav && (
-          <div className="flex-1 md:flex-auto -ml-2 flex md:hidden absolute top-3/4 translate-y-1/2 left-[10%]">
-            <button
-              onClick={setIsOpen(!isOpen)}
-              className="text-white hover:bg-transparent active:bg-transparent"
-            >
-              {isOpen ? (
-                <Image
-                  width={20}
-                  height={20}
-                  src="/images/svg/cross.svg"
-                  alt="exit menu"
-                  className="text-white"
-                />
-              ) : (
-                <Image
-                  width={20}
-                  height={20}
-                  src="/images/svg/menu.svg"
-                  alt="menu"
-                />
-              )}
-            </button>
-          </div>
-        )}
+        <div className="flex-1 md:flex-auto -ms-2 flex md:hidden absolute top-[125%] translate-y-1/2 start-[10%] z-10">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white hover:bg-transparent active:bg-transparent"
+          >
+            {isOpen ? (
+              <Image
+                width={20}
+                height={20}
+                src="/images/svg/cross.svg"
+                alt="exit menu"
+                className="text-white"
+              />
+            ) : (
+              <Image
+                width={20}
+                height={20}
+                src="/images/svg/menu.svg"
+                alt="menu"
+              />
+            )}
+          </button>
+        </div>
         <div
-          className={`flex flex-1 justify-center ${showNav ? "md:justify-start md:translate-x-0 md:static" : ""} m-auto absolute top-0 left-1/2 -translate-x-1/2`}
+          className={`flex flex-1 mx-auto absolute top-0 mt-4 w-full md:justify-around`}
         >
-          <Link className="flex-1" href="/">
+          <Link
+            className="flex flex-1 items-center justify-end me-8 md:justify-center"
+            href="/"
+          >
             <Image
-              width={showNav ? 240 : 200}
-              height={showNav ? 180 : 200}
+              width={320}
+              height={200}
               src={logo.light || logo}
               alt="Rekaz-logo"
-              className={`z-10 ${showNav ? "h-[140px]" : "w-auto h-[140px] md:h-[200px]"}`}
+              className={`z-10 w-60 md:w-80`}
             />
           </Link>
-          <LanguageSwitcher />
-          {showNav && (
-            <div className="flex-1 hidden md:flex items-center justify-center">
-              <DesktopNav navItems={navItems} />
-            </div>
-          )}
-          {showNav && <div className="hidden md:block flex-1" />}
+          <div className="flex-1 hidden md:flex items-center justify-center">
+            <DesktopNav navItems={navItems} />
+          </div>
+          <div className="md:flex flex-1 items-center justify-center hidden">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
       <div>
-        {showNav && (
-          <div
-            className={`transition-all duration-300 ease-in-out ${
-              isOpen ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              maxHeight: isOpen ? "100vh" : "0",
-              overflow: "hidden",
-            }}
-          >
-            <MobileNav navItems={navItems} />
-          </div>
-        )}
+        <div
+          className={`mt-10 transition-all duration-300 ease-in-out ${
+            isOpen ? "opacity-100" : "opacity-0"
+          }`}
+          style={{
+            maxHeight: isOpen ? "100vh" : "0",
+            overflow: "hidden",
+          }}
+        >
+          <MobileNav navItems={navItems} />
+        </div>
       </div>
     </div>
   );

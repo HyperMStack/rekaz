@@ -8,7 +8,7 @@ export function Sectors({ sectorsData }) {
     ...sectorsWithoutType[key],
   }));
   return (
-    <div className="my-16 px-4 rounded-lg">
+    <div className="my-16 px-4 rounded-lg" id="sectors">
       <h2 className="text-center text-5xl font-bold py-16">{title}</h2>
       <div className="flex flex-wrap md:flex-nowrap justify-center">
         {sectorsArray?.map((sector, i) => (

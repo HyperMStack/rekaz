@@ -1,3 +1,4 @@
+import LanguageSwitcher from "../LanguageSwitcher";
 import { MobileNavItem } from "./MobileNavItem";
 
 export function MobileNav({ navItems }) {
@@ -6,6 +7,7 @@ export function MobileNav({ navItems }) {
       {navItems.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <LanguageSwitcher />
     </div>
   );
 }

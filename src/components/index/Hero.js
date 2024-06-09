@@ -1,7 +1,5 @@
 import Link from "next/link";
 import { TypingAnimation } from "./hero/TypingAnimation";
-import Image from "next/image";
-import { urlForImage } from "../../../sanity/lib/image";
 import FadingWords from "./hero/FadingWords";
 import { useRouter } from "next/router";
 import Slideshow from "./hero/Slideshow";
@@ -11,7 +9,10 @@ export function Hero({ data, images }) {
 
   return (
     <div className="relative">
-      <Slideshow images={images} />
+      <div className="flex items-center justify-center overflow-hidden">
+        <Slideshow images={images} />
+      </div>
+
       <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8 z-10">
         <b className="text-6xl md:text-8xl text-white"> {data.title}</b>
         {router.locale == "ar" ? (
