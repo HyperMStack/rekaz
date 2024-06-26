@@ -35,8 +35,12 @@ export default defineConfig({
         S.list()
           .title("Content")
           .items([
-            singelton(S, "Home Page", "homePage"),
             S.documentTypeListItem("projectPage").title("Projects"),
+            singelton(S, "Home Page", "homePage"),
+            singelton(S, "Navigation Links", "navLinks"),
+            singelton(S, "Footer Links", "footerLinks"),
+            singelton(S, "Contact Information", "contact"),
+            singelton(S, "Website Settings", "settings"),
           ]),
     }),
     // Vision is a tool that lets you query your content with GROQ in the studio
