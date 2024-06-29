@@ -6,19 +6,7 @@ import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 
 export const Navbar = ({ navItems, logo }) => {
-  // const [isHeader, setIsHeader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-
-  // const scrollHeader = () => {
-  //   setIsHeader(true);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", scrollHeader);
-  //   return () => {
-  //     window.addEventListener("scroll", scrollHeader);
-  //   };
-  // }, []);
 
   return (
     <div className={`absolute md:fixed top-0 start-0 z-50 w-full`} dir="ltr">
@@ -67,7 +55,7 @@ export const Navbar = ({ navItems, logo }) => {
               className={`z-10 w-60 md:w-64`}
             />
           </Link>
-          <div className="flex-1 hidden md:flex items-center justify-center">
+          <div className="grow hidden md:flex items-center justify-center">
             <DesktopNav navItems={navItems} />
           </div>
           <div className="hidden md:flex flex-1 items-center justify-center">
