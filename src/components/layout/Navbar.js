@@ -21,7 +21,7 @@ export const Navbar = ({ navItems, logo }) => {
   // }, []);
 
   return (
-    <div className={`absolute md:fixed top-0 start-0 z-50 w-full`}>
+    <div className={`absolute md:fixed top-0 start-0 z-50 w-full`} dir="ltr">
       <div
         className={`flex py-2 items-center justify-around relative w-full m-auto`}
       >
