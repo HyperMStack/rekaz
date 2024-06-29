@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export function MobileNavItem({ label, children, href }) {
+export function MobileNavItem({ title, children, link }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCollapse = () => {
@@ -12,10 +12,10 @@ export function MobileNavItem({ label, children, href }) {
   return (
     <button onClick={children && toggleCollapse}>
       <Link
-        href={href ?? "#"}
+        href={link ?? "#"}
         className="py-2 flex justify-between items-center" //! add decoration:none
       >
-        <p className="font-semibold text-white">{label}</p>
+        <p className="font-semibold text-white">{title}</p>
         {children && (
           <Image
             width={6}

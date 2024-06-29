@@ -38,6 +38,7 @@ export default defineConfig({
           .title("Content")
           .items([
             S.documentTypeListItem("projectPage").title("Projects"),
+            // S.documentTypeListItem("navLinks").title("New Navigation Links"),
             singelton(S, "Home Page", "homePage"),
             singelton(S, "Navigation Links", "navLinks"),
             singelton(S, "Footer Links", "footerLinks"),
@@ -53,7 +54,14 @@ export default defineConfig({
         { id: "ar", title: "Arabic", isDefault: true },
         { id: "en", title: "English" },
       ],
-      schemaTypes: ["homePage", "projectPage"],
+      schemaTypes: [
+        "homePage",
+        "projectPage",
+        "navLinks",
+        "footerLinks",
+        "contact",
+        "settings",
+      ],
     }),
   ],
 });

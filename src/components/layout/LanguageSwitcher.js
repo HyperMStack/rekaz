@@ -31,18 +31,18 @@ const LanguageSwitcher = () => {
     <div className="flex md:justify-center items-center gap-2 py-2 md:py-0">
       <div
         onClick={handleLocaleSwitch}
-        className={`text-[#082833] hover:text-[#3a6776] font-bold cursor-pointer transition duration-300 ease-in-out`}
+        className={`text-white md:text-[#082833] md:hover:text-[#3a6776] font-bold cursor-pointer transition duration-300 ease-in-out`}
       >
         {otherLocale === "en" ? "English" : "العربية"}
       </div>
       <div
-        className={`text-[#082833] hover:text-[#3a6776] font-bold cursor-pointer transition duration-300 ease-in-out`}
+        className={`text-white md:text-[#082833] font-bold cursor-pointer transition duration-300 ease-in-out`}
       >
         {"/"}
       </div>
       <div
         onClick={handleLocaleSwitch}
-        className={`text-[#082833] hover:text-[#3a6776] font-bold underline underline-offset-2 transition duration-300 ease-in-out`}
+        className={`text-white md:text-[#082833] font-bold underline underline-offset-2 transition duration-300 ease-in-out`}
       >
         {otherLocale === "en" ? "العربية" : "English"}
       </div>

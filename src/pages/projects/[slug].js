@@ -3,13 +3,13 @@ import { Hero } from "@/components/project/Hero";
 import ImageSet from "@/components/project/ImageSet";
 import { Info } from "@/components/project/Info";
 import { InlineDescription } from "@/components/project/InlineDescription";
-import { navLinks, projects as localProjects, websiteData } from "@/data/data";
+import { websiteData } from "@/data/data";
 import { ImageSlider } from "@/components/project/ImageSlider";
 import Head from "next/head";
 import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
 
-export default function project({ projectData }) {
+export default function project({ projectData, navLinksData }) {
   const locale = projectData.language;
   return (
     <div className="relative overflow-hidden">
@@ -78,8 +78,8 @@ export default function project({ projectData }) {
         className="hidden lg:block absolute top-[calc(50%+800px)] left-0 -translate-x-1/2"
       />
       <LayoutWrapper
-        logo={websiteData.logo}
-        navItems={navLinks}
+        logo={websiteData.logo.hor}
+        navItems={navLinksData}
         showNav={false}
       >
         <Hero image={projectData.projectHero.image} />
@@ -93,18 +93,30 @@ export default function project({ projectData }) {
           inlineDescription={projectData.projectInlineDescription}
         />
         <ImageSlider images={projectData.projectSliderImages.images} />
-        {/* <ImageSet imageSet={projectData.imageSet_2} /> */}
       </LayoutWrapper>
     </div>
   );
 }
 
 export async function getStaticProps({ params, locale }) {
+  let navLinksData = [];
   const query = `*[_type == "projectPage" && language == $locale && slug.current == $slug][0]`;
   const projectData = await client.fetch(query, {
     locale: locale === "ar" ? "ar" : "en",
     slug: params.slug,
   });
+
+  if (locale === "en") {
+    navLinksData = await client.fetch(
+      '*[_type == "navLinks" && language == "en"]'
+    );
+  }
+
+  if (locale === "ar") {
+    navLinksData = await client.fetch(
+      '*[_type == "navLinks" && language == "en"]'
+    );
+  }
 
   if (!projectData) {
     return {
@@ -114,6 +126,7 @@ export async function getStaticProps({ params, locale }) {
 
   return {
     props: {
+      navLinksData: navLinksData[0].links,
       projectData,
     },
     revalidate: 10,

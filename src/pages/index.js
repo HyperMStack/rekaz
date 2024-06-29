@@ -2,13 +2,7 @@ import { Hero } from "@/components/index/Hero";
 import { ProjectsCarousel } from "@/components/index/ProjectsCarousel";
 import { Sectors } from "@/components/index/Sectors";
 import { StatsIncrement } from "@/components/index/StatsIncrement";
-import {
-  heroData,
-  navLinks,
-  projects,
-  sectors,
-  websiteData,
-} from "@/data/data";
+import { heroData, projects, sectors, websiteData } from "@/data/data";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 import Head from "next/head";
 import Image from "next/image";
@@ -20,6 +14,7 @@ export async function getStaticProps(context) {
 
   let homePageData = [];
   let projectPageData = [];
+  let navLinksData = [];
 
   if (locale == "en") {
     homePageData = await client.fetch(
@@ -28,6 +23,9 @@ export async function getStaticProps(context) {
     projectPageData = await client.fetch(
       '*[_type == "projectPage" && language == "en"]{title,projectHero,slug}'
     );
+    navLinksData = await client.fetch(
+      '*[_type == "navLinks" && language == "en"]'
+    );
   } else if (locale == "ar") {
     homePageData = await client.fetch(
       '*[_type == "homePage" && language=="ar"]'
@@ -35,18 +33,22 @@ export async function getStaticProps(context) {
     projectPageData = await client.fetch(
       '*[_type == "projectPage" && language == "ar"]{title,projectHero,slug}'
     );
+    navLinksData = await client.fetch(
+      '*[_type == "navLinks" && language == "ar"]'
+    );
   }
 
   return {
     props: {
       homePageData: homePageData[0] || {},
       projectPageData,
+      navLinksData: navLinksData[0].links || {},
     },
     revalidate: 10, // In seconds
   };
 }
 
-export default function Home({ homePageData, projectPageData }) {
+export default function Home({ homePageData, projectPageData, navLinksData }) {
   const { heroSection, sectorsSection, statsSection } = homePageData;
   const images = [
     "/images/project2/1.webp",
@@ -121,7 +123,7 @@ export default function Home({ homePageData, projectPageData }) {
         />
         <LayoutWrapper
           logo={websiteData.logo.hor}
-          navItems={navLinks}
+          navItems={navLinksData}
           showNav={false}
         >
           <Hero data={heroSection} images={images} />

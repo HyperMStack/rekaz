@@ -4,10 +4,9 @@ import { useRouter } from "next/router";
 
 export function LayoutWrapper({ children, navItems, logo }) {
   const router = useRouter();
-  const direction = router.locale == "ar" ? "rtl" : "ltr";
   return (
-    <div className="relative overflow-hidden">
-      <Navbar navItems={navItems} logo={logo} direction={direction} />
+    <div className="relative overflow-hidden" dir="ltr">
+      <Navbar navItems={navItems} logo={logo} />
       {children}
       <Footer />
     </div>

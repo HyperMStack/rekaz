@@ -5,20 +5,20 @@ import { useEffect, useState } from "react";
 import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 
-export const Navbar = ({ navItems, logo, direction }) => {
-  const [isHeader, setIsHeader] = useState(true);
+export const Navbar = ({ navItems, logo }) => {
+  // const [isHeader, setIsHeader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollHeader = () => {
-    setIsHeader(true);
-  };
+  // const scrollHeader = () => {
+  //   setIsHeader(true);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", scrollHeader);
-    return () => {
-      window.addEventListener("scroll", scrollHeader);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", scrollHeader);
+  //   return () => {
+  //     window.addEventListener("scroll", scrollHeader);
+  //   };
+  // }, []);
 
   return (
     <div className={`absolute md:fixed top-0 start-0 z-50 w-full`}>
