@@ -6,15 +6,11 @@ import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 
 export const Navbar = ({ navItems, logo, direction }) => {
-  const [isHeader, setIsHeader] = useState(false);
+  const [isHeader, setIsHeader] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollHeader = () => {
-    if (window.scrollY >= 20) {
-      setIsHeader(true);
-    } else {
-      setIsHeader(false);
-    }
+    setIsHeader(true);
   };
 
   useEffect(() => {
@@ -56,7 +52,7 @@ export const Navbar = ({ navItems, logo, direction }) => {
           </button>
         </div>
         <div
-          className={`${isHeader ? "md:fixed md:top-0 md:text-[#082833] md:bg-white py-2 mt-0" : "mt-4"} flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
+          className={`md:fixed md:top-0 md:text-[#082833] md:bg-white py-4 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
@@ -68,14 +64,14 @@ export const Navbar = ({ navItems, logo, direction }) => {
               height={200}
               src={logo.light || logo}
               alt="Rekaz-logo"
-              className={`z-10 w-60 md:w-80`}
+              className={`z-10 w-60 md:w-64`}
             />
           </Link>
           <div className="flex-1 hidden md:flex items-center justify-center">
-            <DesktopNav navItems={navItems} header={isHeader} />
+            <DesktopNav navItems={navItems} />
           </div>
           <div className="hidden md:flex flex-1 items-center justify-center">
-            <LanguageSwitcher header={isHeader} />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
