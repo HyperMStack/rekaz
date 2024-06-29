@@ -50,4 +50,65 @@ html {
   transform: translateY(-100%);
 }
 
+/* AboutUs.module.css */
+  /* @keyframes fadeInFromBottomLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-50%, 50%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeOutFromBottomLeft {
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    from {
+      opacity: 0;
+      transform: translate3d(50%, -50%, 0);
+    }
+  }
+
+  @keyframes fadeInFromTop {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -10%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeOutFromTop {
+    from {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 10, 0);
+    }
+  }
+
+  .fadeInFromBottomLeft {
+    animation: fadeInFromBottomLeft 1s ease-in-out forwards;
+  }
+
+  .fadeInFromTop {
+    animation: fadeInFromTop 1s ease-in-out forwards;
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  .fadeOut {
+    animation: fadeOut 1s ease-in-out forwards;
+  } */
+
 

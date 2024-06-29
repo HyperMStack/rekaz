@@ -299,3 +299,104 @@ export const sectors = [
     text: "We offers substantial construction experience, competitive pricing, financial strength, integrity and a commitment to your project that is supported by a foundation of quality and workplace safety.",
   },
 ];
+
+export const aboutUsData = [
+  {
+    id: 1,
+    image: "/images/aboutUs/1.webp",
+    title: "INTRODUCTION",
+    text: `Welcome to our company REKAZ CONSTRUCTION
+& DEVELOPMENT LLC. We are
+pleased to inform you that JPD is a sister
+company of Rimal Global Technical
+Services LLC. This strong affiliation allows
+us to leverage the resources, expertise, and
+industry knowledge of both organizations,
+giving us a competitive edge in the field of
+slope protection. Rimal Global Technical
+Services LLC has established itself as a
+reputable and trusted company in various
+technical services. Through this
+partnership, JPD benefits from Rimal
+Global Technical Services LLC's extensive
+experience, robust infrastructure, and
+established relationships within the
+industry. With a team of experienced
+professionals and a commitment to
+high-quality services, we aim to become a
+leading provider in this field. This document
+will provide an overview of our company,
+our expertise, and our commitment to
+excellence in slope protection.`,
+  },
+  {
+    id: 2,
+    image: "/images/aboutUs/2.webp",
+    title: "COMPANY OVERVIEW",
+    text: `We are a leading company specializing in slope
+protection solutions. Our company was
+founded with the vision to address the
+growing need for innovative and effective
+slope stabilization, erosion control, and soil
+reinforcement projects. We understand the
+challenges faced by various industries,
+including infrastructure, construction, and
+environmental conservation, when it comes
+to protecting slopes from erosion,
+landslides, and other natural hazards.
+We pride ourselves on having a team of
+experts who bring together a wealth of
+knowledge and experience in slope
+protection solutions. Our professionals
+have a deep understanding of the unique
+requirements and complexities associated
+with slope stabilization projects. They are
+constantly working towards developing
+innovative and sustainable solutions that
+ensure the safety and resilience of
+communities and infrastructure in
+slope-prone areas.`,
+  },
+  {
+    id: 3,
+    image: "/images/aboutUs/3.webp",
+    title: "EXPERTISE",
+    text: `At our company, we excel in a diverse
+array of slope protection activities. Our
+specialized expertise encompasses
+scaling, drilling, grouting, wire mesh
+netting, gabion box installation, rockfall
+barrier construction, and shotcrete
+applications. These comprehensive
+services enable us to effectively
+safeguard slopes and mitigate potential
+hazards. By offering these specific
+solutions, we ensure the stability and
+integrity of various terrains, protecting
+both infrastructure and the environment.
+Whether it's the precision of scaling or the
+reliability of shotcrete, our team is
+committed to delivering exceptional
+results in all aspects of slope protection.`,
+  },
+  {
+    id: 4,
+    image: "/images/aboutUs/4.webp",
+    title: "CONCLUSION",
+    text: `As a specialized company in slope protection
+activities, we bring expertise, dedication, and a
+customer-centric approach to every project we
+undertake. Whether it's scaling, drilling,
+grouting, wire mesh, gabion box, rockfall
+barrier and shotcrete applications, our team is
+equipped to provide effective solutions that
+ensure the long-term stability and safety of
+slopes.
+We look forward to collaborating with you and
+contributing to the success of your projects.
+Choose Jibal Projects & Development LLC as
+your trusted partner for all your slope
+protection needs, and let us secure your
+slopes for a sustainable and resilient future.`,
+  },
+];

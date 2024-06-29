@@ -10,6 +10,7 @@ import { structureTool } from "sanity/structure";
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { documentInternationalization } from "@sanity/document-internationalization";
+import myLogo from "./sanity/logo/logo";
 
 const singelton = (S, name, id) => {
   return (
@@ -24,6 +25,7 @@ const singelton = (S, name, id) => {
 };
 
 export default defineConfig({
+  icon: myLogo,
   basePath: "/admin",
   projectId,
   dataset,
