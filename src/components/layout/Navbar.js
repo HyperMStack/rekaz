@@ -40,7 +40,7 @@ export const Navbar = ({ navItems, logo }) => {
           </button>
         </div>
         <div
-          className={`md:fixed md:top-0 md:text-[#082833] md:bg-white py-4 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
+          className={`md:fixed md:top-0 md:text-[#082833] md:bg-white py-2 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
@@ -52,7 +52,7 @@ export const Navbar = ({ navItems, logo }) => {
               height={200}
               src={logo.light || logo}
               alt="Rekaz-logo"
-              className={`z-10 w-60 md:w-64`}
+              className={`z-10 w-52 md:w-56`}
             />
           </Link>
           <div className="grow hidden md:flex items-center justify-center">

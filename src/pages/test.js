@@ -1,7 +1,4 @@
-import { LayoutWrapper } from "@/components/LayoutWrapper";
-import FullScreenCarousel from "@/components/test/FullScreenCarousel";
-import SliderComponent from "@/components/test/SliderComponent";
-import { navLinks, websiteData } from "@/data/data";
+import ParallaxSlider from "@/components/index/ParallaxSlider";
 
 function test() {
   const images = [
@@ -12,23 +9,13 @@ function test() {
     "/images/project2/1.webp",
     "/images/project2/2.webp",
   ];
-  const testImages = [
-    "/test-images/01.jpg",
-    "/test-images/04.jpg",
-    "/test-images/02.jpg",
-    "/test-images/03.jpg",
-  ];
-  return (
-    <LayoutWrapper
-      logo={websiteData.logo.hor}
-      navItems={navLinks}
-      showNav={false}
-    >
-      <div className="flex items-center justify-center overflow-hidden">
-        <FullScreenCarousel images={images} />
-      </div>
-    </LayoutWrapper>
-  );
+  // const testImages = [
+  //   "/test-images/01.jpg",
+  //   "/test-images/04.jpg",
+  //   "/test-images/02.jpg",
+  //   "/test-images/03.jpg",
+  // ];
+  return <ParallaxSlider images={images} />;
 }
 
 export default test;

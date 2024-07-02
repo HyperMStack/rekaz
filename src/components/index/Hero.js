@@ -2,7 +2,7 @@ import Link from "next/link";
 import { TypingAnimation } from "./hero/TypingAnimation";
 import FadingWords from "./hero/FadingWords";
 import { useRouter } from "next/router";
-import Slideshow from "./hero/Slideshow";
+import ParallaxSlider from "./ParallaxSlider";
 
 export function Hero({ data, images }) {
   const router = useRouter();
@@ -10,7 +10,7 @@ export function Hero({ data, images }) {
   return (
     <div className="relative">
       <div className="flex items-center justify-center overflow-hidden">
-        <Slideshow images={images} />
+        <ParallaxSlider images={images} />
       </div>
 
       <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8 z-10">
