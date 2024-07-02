@@ -44,7 +44,7 @@ export const Navbar = ({ navItems, logo }) => {
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
-            className="flex flex-1 items-center justify-end me-8 md:justify-center"
+            className="flex flex-1 items-center justify-end ml-10 md:justify-center"
             href="/"
           >
             <Image

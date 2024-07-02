@@ -3,7 +3,7 @@ import { DesktopSubNav } from "./DesktopSubNav";
 
 export function DesktopNav({ navItems }) {
   return (
-    <div className="flex gap-4">
+    <div className="flex">
       {navItems.map((navItem) => (
         <div key={navItem.title} className="group/navItem py-4 mx-2">
           <div className="relative">
