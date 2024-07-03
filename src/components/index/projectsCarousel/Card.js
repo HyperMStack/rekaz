@@ -12,7 +12,7 @@ export function Card({ projectData, language }) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
-        <div className="absolute bottom-0 -end-1 -translate-y-3/4 flex flex-row bg-white group/card">
+        <div className="absolute -bottom-1 -right-1 -translate-y-3/4 flex flex-row bg-white group/card">
           <p className="my-auto font-medium overflow-hidden relative ps-0 start-14 opacity-0 w-0 group-hover/card:ps-4 group-hover/card:opacity-100 group-hover/card:start-0 group-hover/card:w-full transition-all duration-300">
             {language == "ar" ? "تصفح المشروع" : "View Project"}
           </p>
@@ -25,7 +25,7 @@ export function Card({ projectData, language }) {
           />
         </div>
       </div>
-      <p className="my-4 text-start text-2xl font-semibold">
+      <p className="my-4 text-start text-xl font-semibold">
         {projectData.title}
       </p>
     </div>

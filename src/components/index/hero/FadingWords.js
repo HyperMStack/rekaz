@@ -22,7 +22,7 @@ const FadingWords = ({ words }) => {
       <span
         className={`inline-block transition-opacity duration-500 ${isVisible ? "animate-fadeInRightToLeft" : "animate-fadeOutLeftToRight"}`}
       >
-        <b className="text-6xl md:text-8xl text-white">
+        <b className="text-6xl md:text-7xl text-white">
           {words[currentWordIndex]}
         </b>
       </span>

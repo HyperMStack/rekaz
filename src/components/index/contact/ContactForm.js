@@ -38,12 +38,12 @@ export function ContactForm({ language }) {
 
   return (
     <>
-      <p className="text-2xl my-3 lg:my-0 lg:mb-3 text-gray-700">
+      <p className="text-xl my-3 lg:my-0 lg:mb-3 text-gray-700">
         {language == "ar"
           ? "يمكنك تعبئة الفورم التالي لإرسال رسالة لنا وسنتواصل معك"
           : "Fill up the form to contact us"}
       </p>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <ContactField
           id={"name"}
           label={language == "ar" ? "الاسم" : "Name"}
@@ -83,12 +83,12 @@ export function ContactForm({ language }) {
           }
           placeholder={language == "ar" ? "بريدك الإلكتروني" : "Your Email"}
         />
-        <div>
+        <div className="w-10/12">
           <label htmlFor="message">
             {language == "ar" ? "الرسالة" : "Message"}
           </label>
           <textarea
-            className="box-border outline-2 outline-sky-600 border border-gray-300  rounded-md w-full p-2 mt-2"
+            className="box-border outline-2 outline-sky-600 border border-gray-300 rounded-md p-2 mt-2 w-full"
             placeholder={language == "ar" ? "الرسالة" : "Message"}
             name="message"
             id="message"

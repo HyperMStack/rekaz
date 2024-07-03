@@ -52,7 +52,7 @@ export const Navbar = ({ navItems, logo }) => {
               height={200}
               src={logo.light || logo}
               alt="Rekaz-logo"
-              className={`z-10 w-52 md:w-56`}
+              className={`z-10 w-48 md:w-52`}
             />
           </Link>
           <div className="grow hidden md:flex items-center justify-center">
