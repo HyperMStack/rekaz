@@ -2,12 +2,12 @@ import { Hero } from "@/components/index/Hero";
 import { ProjectsCarousel } from "@/components/index/ProjectsCarousel";
 import { Sectors } from "@/components/index/Sectors";
 import { StatsIncrement } from "@/components/index/StatsIncrement";
-import { heroData, projects, sectors, websiteData } from "@/data/data";
 import { LayoutWrapper } from "@/components/LayoutWrapper";
 import Head from "next/head";
 import Image from "next/image";
 import { Contact } from "@/components/index/Contact";
 import { client } from "../../sanity/lib/client";
+import { urlForImage } from "../../sanity/lib/image";
 
 export async function getStaticProps(context) {
   const { locale } = context;
@@ -16,6 +16,8 @@ export async function getStaticProps(context) {
   let projectPageData = [];
   let navLinksData = [];
   let footerLinksData = [];
+  let websiteSettingsData = [];
+  let contactsData = [];
 
   if (locale == "en") {
     homePageData = await client.fetch(
@@ -30,6 +32,12 @@ export async function getStaticProps(context) {
     footerLinksData = await client.fetch(
       '*[_type == "footerLinks" && language == "en"]'
     );
+    websiteSettingsData = await client.fetch(
+      '*[_type == "settings" && language == "en"]'
+    );
+    contactsData = await client.fetch(
+      '*[_type == "contact" && language == "en"]'
+    );
   } else if (locale == "ar") {
     homePageData = await client.fetch(
       '*[_type == "homePage" && language=="ar"]'
@@ -43,6 +51,12 @@ export async function getStaticProps(context) {
     footerLinksData = await client.fetch(
       '*[_type == "footerLinks" && language == "ar"]'
     );
+    websiteSettingsData = await client.fetch(
+      '*[_type == "settings" && language == "ar"]'
+    );
+    contactsData = await client.fetch(
+      '*[_type == "contact" && language == "ar"]'
+    );
   }
 
   return {
@@ -50,7 +64,9 @@ export async function getStaticProps(context) {
       homePageData: homePageData[0] || {},
       projectPageData,
       navLinksData: navLinksData[0].links || {},
-      footerLinksData,
+      footerLinksData: footerLinksData[0].links || {},
+      websiteSettingsData: websiteSettingsData[0] || {},
+      contactsData: contactsData[0],
     },
     revalidate: 10, // In seconds
   };
@@ -61,32 +77,33 @@ export default function Home({
   projectPageData,
   navLinksData,
   footerLinksData,
+  websiteSettingsData,
+  contactsData,
 }) {
   const { heroSection, sectorsSection, statsSection } = homePageData;
-  const images = [
-    "/images/project2/1.webp",
-    "/images/project2/2.webp",
-    "/images/project2/3.webp",
-    "/images/project2/4.webp",
-    "/images/project2/1.webp",
-  ];
   return (
     <>
       <Head>
         <title>Rekaz Development</title>
         <meta
           name="description"
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam tenetur dolorem ullam dolores animi corporis illum harum."
+          content={`${websiteSettingsData.description}`}
           key="description"
         />
-        <meta property="og:title" content="Rekaz Development" />
+        <meta
+          property="og:title"
+          content={`${websiteSettingsData.websiteName}`}
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`https://rekaz.netlify.app`} />
+        <meta property="og:url" content={`${websiteSettingsData.websiteURL}`} />
         <meta
           property="og:image"
-          content={`https://rekaz.netlify.app${heroData.image}`}
+          content={`${urlForImage(websiteSettingsData.logo)}`}
         />
-        <meta property="og:site_name" content={`Rekaz Development`} />
+        <meta
+          property="og:site_name"
+          content={`${websiteSettingsData.websiteName}`}
+        />
       </Head>
       <div className="relative overflow-hidden">
         {/* sm screens */}
@@ -135,15 +152,21 @@ export default function Home({
           className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
         />
         <LayoutWrapper
-          logo={websiteData.logo.hor}
+          logo={websiteSettingsData.logo}
           navItems={navLinksData}
           showNav={false}
+          footerLinks={footerLinksData}
+          websiteName={websiteSettingsData.websiteName}
+          language={websiteSettingsData.language}
         >
-          <Hero data={heroSection} images={images} />
+          <Hero data={heroSection} />
           <ProjectsCarousel projects={projectPageData} />
           <Sectors sectorsData={sectorsSection} />
           <StatsIncrement statsData={statsSection} />
-          <Contact language={homePageData.language} />
+          <Contact
+            language={homePageData.language}
+            contactsData={contactsData}
+          />
         </LayoutWrapper>
       </div>
     </>

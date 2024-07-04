@@ -4,13 +4,13 @@ import FadingWords from "./hero/FadingWords";
 import { useRouter } from "next/router";
 import ParallaxSlider from "./ParallaxSlider";
 
-export function Hero({ data, images }) {
+export function Hero({ data }) {
   const router = useRouter();
 
   return (
     <div className="relative">
       <div className="flex items-center justify-center overflow-hidden">
-        <ParallaxSlider images={images} />
+        <ParallaxSlider images={data.sliderImages} />
       </div>
 
       <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8 z-10">

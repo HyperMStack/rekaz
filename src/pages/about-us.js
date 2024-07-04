@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { aboutUsData } from "@/data/data";
 
 export default function AboutUs() {
   return (

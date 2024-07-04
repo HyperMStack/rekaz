@@ -1,27 +1,28 @@
+import { urlForImage } from "../../../../sanity/lib/image";
 import { ContactButton } from "./ContactButton";
 import { ContactIconButton } from "./ContactIconButton";
 
-export function ContactLinksSet({ contactInfo, socialLinks }) {
+export function ContactLinksSet({ contactsData }) {
   return (
     <>
       <div className="pt-4">
         <div className="flex flex-col gap-3 items-start">
-          {contactInfo.map((contact) => (
+          {contactsData.contactInfo.contactFields.map((contact) => (
             <ContactButton
-              key={contact.id}
+              key={contact._key}
               text={contact.text}
-              icon={contact.icon}
+              icon={urlForImage(contact.icon)}
               link={contact.link}
             />
           ))}
         </div>
       </div>
       <div className="flex my-4 justify-start gap-2">
-        {socialLinks.map((social) => (
+        {contactsData.socialLinks.socialLinksRecord.map((social) => (
           <ContactIconButton
-            label={social.text}
-            icon={social.icon}
-            key={social.id}
+            label={social.title}
+            icon={urlForImage(social.icon)}
+            key={social._key}
             link={social.link}
           />
         ))}

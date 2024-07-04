@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { urlForImage } from "../../../sanity/lib/image";
+import Image from "next/image";
 
 export default function ParallaxSlider({ images }) {
   const options = {
@@ -102,10 +104,12 @@ export default function ParallaxSlider({ images }) {
                 <div
                   className={`relativ w-full h-full flex justify-center embla__parallax__layer`}
                 >
-                  <img
-                    src={image}
+                  <Image
+                    src={urlForImage(image)}
                     alt={`Slide ${index}`}
                     className={`h-screen w-auto object-cover max-w-none [flex:0_0_100%]`}
+                    width={1920}
+                    height={1080}
                   />
                 </div>
               </div>

@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { footerLinks, websiteData } from "../../data/data";
 
-export function Footer() {
+export function Footer({ footerLinks, websiteName, language }) {
   return (
     <div className="max-w-[1350px] mx-auto lg:px-10">
       <footer className="text-sm relative mt-12">
@@ -9,15 +8,17 @@ export function Footer() {
           <p className="text-center lg:text-start text-sm w-full">
             &copy; 2023{" "}
             <Link href="/" className="hover:underline">
-              {websiteData.websiteName}
+              {websiteName}
             </Link>
-            . All rights reserved.
+            {language == "en"
+              ? ". All rights reserved."
+              : ". جميع الحقوق محفوظة."}
           </p>
           <div className="w-full flex flex-wrap gap-4 justify-center lg:justify-end my-4">
-            {footerLinks.map((link) => (
-              <div key={link.id} className="w-auto">
-                <Link href={link.href} className="hover:underline">
-                  {link.label}
+            {footerLinks.map((item) => (
+              <div key={item._key} className="w-auto">
+                <Link href={item.link} className="hover:underline">
+                  {item.title}
                 </Link>
               </div>
             ))}

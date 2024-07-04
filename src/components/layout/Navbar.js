@@ -4,6 +4,7 @@ import { MobileNav } from "./navbar/MobileNav";
 import { useEffect, useState } from "react";
 import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
+import { urlForImage } from "../../../sanity/lib/image.js";
 
 export const Navbar = ({ navItems, logo }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +51,7 @@ export const Navbar = ({ navItems, logo }) => {
             <Image
               width={320}
               height={200}
-              src={logo.light || logo}
+              src={urlForImage(logo)}
               alt="Rekaz-logo"
               className={`z-10 w-48 md:w-52`}
             />

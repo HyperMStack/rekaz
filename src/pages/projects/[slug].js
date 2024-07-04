@@ -3,13 +3,18 @@ import { Hero } from "@/components/project/Hero";
 import ImageSet from "@/components/project/ImageSet";
 import { Info } from "@/components/project/Info";
 import { InlineDescription } from "@/components/project/InlineDescription";
-import { websiteData } from "@/data/data";
 import { ImageSlider } from "@/components/project/ImageSlider";
 import Head from "next/head";
 import Image from "next/image";
 import { client } from "../../../sanity/lib/client";
+import { urlForImage } from "../../../sanity/lib/image";
 
-export default function project({ projectData, navLinksData }) {
+export default function project({
+  projectData,
+  navLinksData,
+  footerLinksData,
+  websiteSettingsData,
+}) {
   const locale = projectData.language;
   return (
     <div className="relative overflow-hidden">
@@ -17,7 +22,7 @@ export default function project({ projectData, navLinksData }) {
         <title>{projectData.title}</title>
         <meta
           name="description"
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam tenetur dolorem ullam dolores animi corporis illum harum."
+          content={`${projectData.projectInformation.description}`}
           key="description"
         />
         <meta property="og:title" content={projectData.title} />
@@ -30,7 +35,10 @@ export default function project({ projectData, navLinksData }) {
           property="og:image"
           content={`https://rekaz.netlify.app${projectData.coverImage}`}
         />
-        <meta property="og:site_name" content={`Rekaz Development`} />
+        <meta
+          property="og:site_name"
+          content={`${websiteSettingsData.websiteName}`}
+        />
       </Head>
       {/* sm screens */}
       <Image
@@ -78,9 +86,12 @@ export default function project({ projectData, navLinksData }) {
         className="hidden lg:block absolute top-[calc(50%+800px)] left-0 -translate-x-1/2"
       />
       <LayoutWrapper
-        logo={websiteData.logo.hor}
+        logo={websiteSettingsData.logo}
         navItems={navLinksData}
+        footerLinks={footerLinksData}
         showNav={false}
+        websiteName={websiteSettingsData.websiteName}
+        language={websiteSettingsData.language}
       >
         <Hero image={projectData.projectHero.image} />
         <Info
@@ -100,6 +111,8 @@ export default function project({ projectData, navLinksData }) {
 
 export async function getStaticProps({ params, locale }) {
   let navLinksData = [];
+  let websiteSettingsData;
+  let footerLinksData = [];
   const query = `*[_type == "projectPage" && language == $locale && slug.current == $slug][0]`;
   const projectData = await client.fetch(query, {
     locale: locale === "ar" ? "ar" : "en",
@@ -110,11 +123,23 @@ export async function getStaticProps({ params, locale }) {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "en"]'
     );
+    websiteSettingsData = await client.fetch(
+      '*[_type == "settings" && language == "en"]'
+    );
+    footerLinksData = await client.fetch(
+      '*[_type == "footerLinks" && language == "en"]'
+    );
   }
 
   if (locale === "ar") {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "en"]'
+    );
+    websiteSettingsData = await client.fetch(
+      '*[_type == "settings" && language == "ar"]'
+    );
+    footerLinksData = await client.fetch(
+      '*[_type == "footerLinks" && language == "ar"]'
     );
   }
 
@@ -127,7 +152,9 @@ export async function getStaticProps({ params, locale }) {
   return {
     props: {
       navLinksData: navLinksData[0].links,
+      websiteSettingsData: websiteSettingsData[0],
       projectData,
+      footerLinksData: footerLinksData[0].links,
     },
     revalidate: 10,
   };
