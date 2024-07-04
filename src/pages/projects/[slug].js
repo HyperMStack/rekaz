@@ -37,7 +37,7 @@ export default function project({
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:type" content="image/webp" />
         <meta
           property="og:site_name"
           content={`${websiteSettingsData.websiteName}`}
