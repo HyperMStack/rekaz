@@ -5,29 +5,35 @@ export default {
   fields: [
     {
       name: "bgImage",
-      type: "image",
       title: "Background Image",
+      type: "image",
+    },
+    {
+      name: "sliderImages",
+      title: "Slider Images",
+      type: "array",
+      of: [{ type: "image" }],
     },
     {
       name: "title",
-      type: "string",
       title: "Main Title",
+      type: "string",
     },
     {
       name: "changingWords",
-      type: "array",
       title: "Changing Words",
+      type: "array",
       of: [{ type: "string" }],
     },
     {
       name: "buttonText",
-      type: "string",
       title: "Button Text",
+      type: "string",
     },
     {
       name: "buttonLink",
-      type: "string",
       title: "Button Link",
+      type: "string",
     },
   ],
 };

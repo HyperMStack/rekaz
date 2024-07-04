@@ -3,7 +3,7 @@ export default {
   title: "Contact",
   type: "document",
   fields: [
-    { name: "title", title: "Title", type: "string" },
+    { name: "title", title: "Title", type: "string", hidden: true },
     {
       name: "contactInfo",
       title: "Contact Info",

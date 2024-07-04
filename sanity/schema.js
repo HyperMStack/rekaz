@@ -21,6 +21,8 @@ import contactInfo from "./schemas/contact/contactInfo";
 import socialLinksRecord from "./schemas/contact/socialLinks/socialLinksRecord";
 import socialLinks from "./schemas/contact/socialLinks";
 import contact from "./schemas/contact";
+import termsOfService from "./schemas/termsOfService";
+import privacyPolicy from "./schemas/privacyPolicy";
 
 export const schema = {
   types: [
@@ -47,5 +49,7 @@ export const schema = {
     socialLinksRecord,
     socialLinks,
     contact,
+    termsOfService,
+    privacyPolicy,
   ],
 };

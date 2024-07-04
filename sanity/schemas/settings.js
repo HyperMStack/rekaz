@@ -9,6 +9,11 @@ export default {
       type: "string",
     },
     {
+      name: "websiteURL",
+      title: "Website's Link",
+      type: "url",
+    },
+    {
       name: "websiteDescription",
       title: "Website Description",
       type: "string",

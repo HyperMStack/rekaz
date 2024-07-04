@@ -15,6 +15,7 @@ export async function getStaticProps(context) {
   let homePageData = [];
   let projectPageData = [];
   let navLinksData = [];
+  let footerLinksData = [];
 
   if (locale == "en") {
     homePageData = await client.fetch(
@@ -26,6 +27,9 @@ export async function getStaticProps(context) {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "en"]'
     );
+    footerLinksData = await client.fetch(
+      '*[_type == "footerLinks" && language == "en"]'
+    );
   } else if (locale == "ar") {
     homePageData = await client.fetch(
       '*[_type == "homePage" && language=="ar"]'
@@ -36,6 +40,9 @@ export async function getStaticProps(context) {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "ar"]'
     );
+    footerLinksData = await client.fetch(
+      '*[_type == "footerLinks" && language == "ar"]'
+    );
   }
 
   return {
@@ -43,12 +50,18 @@ export async function getStaticProps(context) {
       homePageData: homePageData[0] || {},
       projectPageData,
       navLinksData: navLinksData[0].links || {},
+      footerLinksData,
     },
     revalidate: 10, // In seconds
   };
 }
 
-export default function Home({ homePageData, projectPageData, navLinksData }) {
+export default function Home({
+  homePageData,
+  projectPageData,
+  navLinksData,
+  footerLinksData,
+}) {
   const { heroSection, sectorsSection, statsSection } = homePageData;
   const images = [
     "/images/project2/1.webp",
