@@ -99,7 +99,7 @@ export default function Home({
         <meta property="og:url" content={`${websiteSettingsData.websiteURL}`} />
         <meta
           property="og:image"
-          content={`${urlForImage(websiteSettingsData.logo)}`}
+          content={`${urlForImage(websiteSettingsData.ogLogo)}`}
         />
         <meta property="og:image:width" content="646" />
         <meta property="og:image:height" content="161" />

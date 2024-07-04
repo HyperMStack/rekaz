@@ -9,6 +9,12 @@ export default {
       type: "string",
     },
     {
+      name: "ogLogo",
+      title: "Logo Thumbnail",
+      type: "image",
+      hidden: true,
+    },
+    {
       name: "websiteURL",
       title: "Website's Link",
       type: "url",
