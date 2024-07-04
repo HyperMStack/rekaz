@@ -81,6 +81,7 @@ export default function Home({
   contactsData,
 }) {
   const { heroSection, sectorsSection, statsSection } = homePageData;
+  console.log("image", urlForImage(websiteSettingsData.logo));
   return (
     <>
       <Head>
@@ -97,9 +98,12 @@ export default function Home({
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${websiteSettingsData.websiteURL}`} />
         <meta
-          property="og:image:secure_url"
+          property="og:image"
           content={`${urlForImage(websiteSettingsData.logo)}`}
         />
+        <meta property="og:image:width" content="1280" />
+        <meta property="og:image:height" content="720" />
+        <meta property="og:image:type" content="image/png" />
         <meta
           property="og:site_name"
           content={`${websiteSettingsData.websiteName}`}
