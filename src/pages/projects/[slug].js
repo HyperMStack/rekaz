@@ -33,8 +33,11 @@ export default function project({
         />
         <meta
           property="og:image"
-          content={`https://rekaz.netlify.app${projectData.coverImage}`}
+          content={`${urlForImage(projectData.projectHero.image)}`}
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
         <meta
           property="og:site_name"
           content={`${websiteSettingsData.websiteName}`}
