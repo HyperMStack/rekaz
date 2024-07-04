@@ -87,7 +87,7 @@ export default function Home({
         <title>Rekaz Development</title>
         <meta
           name="description"
-          content={`${websiteSettingsData.description}`}
+          content={`${websiteSettingsData.websiteDescription}`}
           key="description"
         />
         <meta
@@ -97,7 +97,7 @@ export default function Home({
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${websiteSettingsData.websiteURL}`} />
         <meta
-          property="og:image"
+          property="og:image:secure_url"
           content={`${urlForImage(websiteSettingsData.logo)}`}
         />
         <meta
