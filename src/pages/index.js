@@ -164,9 +164,9 @@ export default function Home({
           language={websiteSettingsData.language}
         >
           <Hero data={heroSection} />
-          <ProjectsCarousel projects={projectPageData} />
           <Sectors sectorsData={sectorsSection} />
           <StatsIncrement statsData={statsSection} />
+          <ProjectsCarousel projects={projectPageData} />
           <Contact
             language={homePageData.language}
             contactsData={contactsData}
