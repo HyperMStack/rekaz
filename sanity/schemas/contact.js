@@ -14,5 +14,11 @@ export default {
       title: "Social Links",
       type: "socialLinks",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

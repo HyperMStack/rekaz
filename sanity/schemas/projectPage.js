@@ -65,5 +65,11 @@ export default {
       title: "Slider Images",
       type: "sliderImages",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

@@ -24,5 +24,11 @@ export default {
       title: "Stats Section",
       type: "statsSection",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

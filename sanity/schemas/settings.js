@@ -29,5 +29,11 @@ export default {
       title: "Logo",
       type: "image",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

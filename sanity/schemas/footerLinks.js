@@ -15,5 +15,11 @@ export default {
       type: "array",
       of: [{ type: "footerLink" }],
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };
