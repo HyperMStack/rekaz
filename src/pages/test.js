@@ -1,7 +1,7 @@
-import ParallaxSlider from "@/components/index/ParallaxSlider";
+import Flipbook from "@/components/index/Flipbook";
 
 function test() {
-  return <div>testing page</div>;
+  return <Flipbook />;
 }
 
 export default test;
