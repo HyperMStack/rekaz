@@ -2,7 +2,7 @@ import { urlForImage } from "../../../../sanity/lib/image";
 import { ContactButton } from "./ContactButton";
 import { ContactIconButton } from "./ContactIconButton";
 
-export function ContactLinksSet({ contactsData }) {
+export function ContactLinksSet({ contactsData, color }) {
   return (
     <>
       <div className="pt-4">
@@ -13,6 +13,7 @@ export function ContactLinksSet({ contactsData }) {
               text={contact.text}
               icon={urlForImage(contact.icon)}
               link={contact.link}
+              color={color}
             />
           ))}
         </div>

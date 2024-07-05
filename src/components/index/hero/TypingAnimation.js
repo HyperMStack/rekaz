@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useAnimation } from "framer-motion";
 
-export const TypingAnimation = ({ words }) => {
+export const TypingAnimation = ({ words, color }) => {
   const [index, setIndex] = useState(0);
   const [word, setWord] = useState(words[index]);
   const [letters, setLetters] = useState(word.split("")); // State to hold the letters of the current word
@@ -62,7 +62,11 @@ export const TypingAnimation = ({ words }) => {
           className="inline-block"
           transition={{ duration: 1, delay: i * 0.07 }} // Delay each letter by 0.1 seconds
         >
-          <b className="text-6xl md:text-7xl text-white">{letter}</b>
+          <b
+            className={`text-6xl md:text-7xl ${color == "black" ? "text-[#082833]" : "text-white"}`}
+          >
+            {letter}
+          </b>
         </motion.div>
       ))}
     </div>

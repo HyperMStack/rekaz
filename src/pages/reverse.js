@@ -71,8 +71,7 @@ export async function getStaticProps(context) {
     revalidate: 10, // In seconds
   };
 }
-
-export default function Home({
+export default function reverse({
   homePageData,
   projectPageData,
   navLinksData,
@@ -108,52 +107,52 @@ export default function Home({
           content={`${websiteSettingsData.websiteName}`}
         />
       </Head>
-      <div className="relative overflow-hidden">
+      <div className={`relative overflow-hidden !bg-[#082833]}`}>
         {/* sm screens */}
-        <Image
-          width={350}
-          height={350}
-          src={"/images/svg/star-color.svg"}
-          alt="feature"
-          className="md:hidden absolute top-[calc(50%-400px)] right-0 translate-x-1/2 opacity-50"
-        />
-        <Image
-          width={350}
-          height={350}
-          src={"/images/svg/star-gray.svg"}
-          alt="feature"
-          className="md:hidden absolute top-[calc(50%+200px)] left-0 -translate-x-1/2"
-        />
+        {/* <Image
+            width={350}
+            height={350}
+            src={"/images/svg/star-color.svg"}
+            alt="feature"
+            className="md:hidden absolute top-[calc(50%-400px)] right-0 translate-x-1/2 opacity-50"
+          />
+          <Image
+            width={350}
+            height={350}
+            src={"/images/svg/star-gray.svg"}
+            alt="feature"
+            className="md:hidden absolute top-[calc(50%+200px)] left-0 -translate-x-1/2"
+          /> */}
         {/* md screens */}
-        <Image
-          width={600}
-          height={600}
-          src={"/images/svg/star-color.svg"}
-          alt="feature"
-          className="hidden md:block lg:hidden absolute top-[calc(50%-200px)] right-0 translate-x-1/2 opacity-50"
-        />
-        <Image
-          width={600}
-          height={600}
-          src={"/images/svg/star-gray.svg"}
-          alt="feature"
-          className="hidden md:block lg:hidden absolute top-[calc(50%+400px)] left-0 -translate-x-1/2"
-        />
+        {/* <Image
+            width={600}
+            height={600}
+            src={"/images/svg/star-color.svg"}
+            alt="feature"
+            className="hidden md:block lg:hidden absolute top-[calc(50%-200px)] right-0 translate-x-1/2 opacity-50"
+          />
+          <Image
+            width={600}
+            height={600}
+            src={"/images/svg/star-gray.svg"}
+            alt="feature"
+            className="hidden md:block lg:hidden absolute top-[calc(50%+400px)] left-0 -translate-x-1/2"
+          /> */}
         {/* lg screens */}
-        <Image
-          width={800}
-          height={800}
-          src={"/images/svg/star-color.svg"}
-          alt="feature"
-          className="hidden lg:block absolute top-[calc(50%-100px)] right-0 translate-x-1/2 opacity-50"
-        />
-        <Image
-          width={800}
-          height={800}
-          src={"/images/svg/star-gray.svg"}
-          alt="feature"
-          className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
-        />
+        {/* <Image
+            width={800}
+            height={800}
+            src={"/images/svg/star-color.svg"}
+            alt="feature"
+            className="hidden lg:block absolute top-[calc(50%-100px)] right-0 translate-x-1/2 opacity-50"
+          />
+          <Image
+            width={800}
+            height={800}
+            src={"/images/svg/star-gray.svg"}
+            alt="feature"
+            className="hidden lg:block absolute top-[calc(50%+500px)] left-0 -translate-x-1/2"
+          /> */}
         <LayoutWrapper
           logo={websiteSettingsData.logo}
           navItems={navLinksData}
@@ -161,14 +160,16 @@ export default function Home({
           footerLinks={footerLinksData}
           websiteName={websiteSettingsData.websiteName}
           language={websiteSettingsData.language}
+          color={"black"}
         >
-          <Hero data={heroSection} />
-          <Sectors sectorsData={sectorsSection} />
-          <StatsIncrement statsData={statsSection} />
-          <ProjectsCarousel projects={projectPageData} />
+          <Hero data={heroSection} color={"black"} />
+          <Sectors sectorsData={sectorsSection} color={"black"} />
+          <StatsIncrement statsData={statsSection} color={"black"} />
+          <ProjectsCarousel projects={projectPageData} color={"black"} />
           <Contact
             language={homePageData.language}
             contactsData={contactsData}
+            color={"black"}
           />
         </LayoutWrapper>
       </div>

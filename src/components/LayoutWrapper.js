@@ -9,13 +9,16 @@ export function LayoutWrapper({
   footerLinks,
   websiteName,
   language,
+  color,
 }) {
-  const router = useRouter();
   return (
-    <div className="relative overflow-hidden">
-      <Navbar navItems={navItems} logo={logo} />
+    <div
+      className={`relative overflow-hidden ${color ? "!bg-[#082833] text-white" : ""}`}
+    >
+      <Navbar navItems={navItems} logo={logo} color={color} />
       {children}
       <Footer
+        color={color}
         footerLinks={footerLinks}
         websiteName={websiteName}
         language={language}

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { DesktopSubNav } from "./DesktopSubNav";
 
-export function DesktopNav({ navItems }) {
+export function DesktopNav({ navItems, color }) {
   return (
     <div className="flex">
       {navItems.map((navItem) => (
         <div key={navItem.title} className="group/navItem py-4 mx-2">
           <div className="relative">
             <Link
-              className={`p-2 text-sm font-semibold text-[#082833] hover:text-[#3a6776]"`} //! add decoration: none
+              className={`p-2 text-sm font-semibold ${color == "black" ? "text-stone-200 hover:text-white" : "text-[#082833] hover:text-[#3a6776]"}"`} //! add decoration: none
               href={navItem.link ?? "#"}
             >
               {navItem.title}
