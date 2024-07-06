@@ -8,9 +8,9 @@ export default function ParallaxSlider({ images }) {
   const options = {
     axis: "y",
     loop: true,
-    align: "center",
     watchDrag: false,
   };
+  // const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnFocusIn: false }),
   ]);
@@ -23,7 +23,7 @@ export default function ParallaxSlider({ images }) {
   //   if (emblaApi) emblaApi.scrollPrev();
   // }, [emblaApi]);
 
-  const TWEEN_FACTOR_BASE = 0.63;
+  const TWEEN_FACTOR_BASE = 1;
   const tweenFactor = useRef(0);
   const tweenNodes = useRef([]);
 
@@ -69,7 +69,7 @@ export default function ParallaxSlider({ images }) {
 
         const translate = diffToTarget * (-1 * tweenFactor.current) * 100;
         const tweenNode = tweenNodes.current[slideIndex];
-        tweenNode.style.transform = `translateY(${translate}%)`;
+        tweenNode.style.transform = `translateY(${0}%)`;
       });
     });
   }, []);
@@ -91,16 +91,16 @@ export default function ParallaxSlider({ images }) {
 
   return (
     <div
-      className={`relativ overflow-hidden h-screen w-screen z-0 pointer-events-none`}
+      className={`relative overflow-hidden h-screen w-screen pointer-events-none`}
     >
       <div className={`overflow-hidden w-full h-full`} ref={emblaRef}>
-        <div className={`flex h-full [willChange:transform] flex-col`}>
+        <div className={`flex h-full flex-col`}>
           {images.map((image, index) => (
             <div
               className={`relative min-w-full h-full box-border`}
               key={index}
             >
-              <div className={`h-full overflow-hidden`}>
+              <div className={`h-full overflow-hidden `}>
                 <div
                   className={`relativ w-full h-full flex justify-center embla__parallax__layer`}
                 >
