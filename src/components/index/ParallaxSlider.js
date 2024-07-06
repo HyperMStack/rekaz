@@ -23,7 +23,7 @@ export default function ParallaxSlider({ images }) {
   //   if (emblaApi) emblaApi.scrollPrev();
   // }, [emblaApi]);
 
-  const TWEEN_FACTOR_BASE = 1;
+  const TWEEN_FACTOR_BASE = 0.5;
   const tweenFactor = useRef(0);
   const tweenNodes = useRef([]);
 
