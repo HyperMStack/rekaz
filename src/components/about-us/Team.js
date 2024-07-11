@@ -3,20 +3,22 @@ import MemberCard from "./team/MemberCard";
 
 export default function Team() {
   return (
-    <div className="mt-8">
+    <div className="mt-8 max-w-[1350px] mx-auto">
       <h1 className="text-4xl font-semibold m-4">Our Team</h1>
       <p className="text-base m-4">
         At the heart of Rekaz is a dedicated team who ignites innovation and
         embodies the core values that define our company.
       </p>
-      {teamMembers.map((member, index) => (
-        <MemberCard
-          key={index}
-          image={member.image}
-          name={member.name}
-          title={member.title}
-        />
-      ))}
+      <div className="flex flex-wrap justify-center">
+        {teamMembers.map((member, index) => (
+          <MemberCard
+            key={index}
+            image={member.image}
+            name={member.name}
+            title={member.title}
+          />
+        ))}
+      </div>
     </div>
   );
 }
