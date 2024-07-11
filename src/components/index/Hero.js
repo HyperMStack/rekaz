@@ -28,7 +28,7 @@ export function Hero({ data, color }) {
         <button className="my-4">
           <Link
             href={`/${data.buttonLink}`}
-            className={`${color == "black" ? "text-white bg-[#082833]" : "text-black bg-white"} rounded-none text-sm px-6 py-2  font-semibold`}
+            className={`bg-white rounded-none text-sm px-6 py-2  font-semibold`}
           >
             {data.buttonText}
           </Link>

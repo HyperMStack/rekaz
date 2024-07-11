@@ -6,15 +6,6 @@ import Image from "next/image";
 export default function Messages() {
   return (
     <div className="relative flex flex-col gap-8 lg:gap-2 overflow-hidden lg:my-24">
-      <div className="absolute inset-0 flex justify-center items-center">
-        <Image
-          className="absolute h-full w-auto object-cover md:object-right lg:object-center lg:content-center lg:object-contain lg:translate-x-1/2 lg:rounded-lg"
-          src={bg}
-          alt="bg"
-          width={1920}
-          height={1080}
-        />
-      </div>
       <div className="z-10 lg:translate-x-[15%]">
         {cards.map((item, index) => (
           <Card key={index} text={item.text} />
