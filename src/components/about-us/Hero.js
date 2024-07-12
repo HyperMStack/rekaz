@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <div className="h-screen relative mb-10">
+    <div className="h-dvh relative mb-10">
       <Image
         src={`/images/about/about-us.jpg`}
         alt="Hero Image"

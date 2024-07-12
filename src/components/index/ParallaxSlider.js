@@ -10,18 +10,9 @@ export default function ParallaxSlider({ images }) {
     loop: true,
     watchDrag: false,
   };
-  // const [emblaRef, emblaApi] = useEmblaCarousel(options);
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnFocusIn: false }),
   ]);
-
-  // const scrollNext = useCallback(() => {
-  //   if (emblaApi) emblaApi.scrollNext();
-  // }, [emblaApi]);
-
-  // const scrollPrev = useCallback(() => {
-  //   if (emblaApi) emblaApi.scrollPrev();
-  // }, [emblaApi]);
 
   const TWEEN_FACTOR_BASE = 0.5;
   const tweenFactor = useRef(0);
@@ -91,7 +82,7 @@ export default function ParallaxSlider({ images }) {
 
   return (
     <div
-      className={`relative overflow-hidden h-screen w-screen pointer-events-none`}
+      className={`relative overflow-hidden h-dvh w-screen pointer-events-none`}
     >
       <div className={`overflow-hidden w-full h-full`} ref={emblaRef}>
         <div className={`flex h-full flex-col`}>
@@ -116,22 +107,6 @@ export default function ParallaxSlider({ images }) {
             </div>
           ))}
         </div>
-        {/* <button
-          className={
-            "absolute top-1/2 -translate-x-1/2 bg-black/50 text-white border-none p-[10px] cursor-pointer disabled:bg-black/25 disabled:cursor-not-allowed first-of-type:left-[10px] last-of-type:right-[10px]"
-          }
-          onClick={scrollPrev}
-        >
-          Prev
-        </button>
-        <button
-          className={
-            "absolute top-1/2 -translate-x-1/2 bg-black/50 text-white border-none p-[10px] cursor-pointer disabled:bg-black/25 disabled:cursor-not-allowed first-of-type:left-[10px] last-of-type:right-[10px]"
-          }
-          onClick={scrollNext}
-        >
-          Next
-        </button> */}
       </div>
     </div>
   );

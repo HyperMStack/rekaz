@@ -3,8 +3,8 @@ import Card from "./messages/Card";
 
 export default function Messages() {
   return (
-    <div className="relative flex flex-col gap-8 lg:gap-2 overflow-hidden lg:my-24">
-      <div className="z-10 lg:translate-x-[15%]">
+    <div className="relative flex flex-col gap-8 overflow-hidden">
+      <div className="z-10">
         {cards.map((item, index) => (
           <Card key={index} text={item.text} />
         ))}

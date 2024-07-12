@@ -1,7 +1,14 @@
 import React from "react";
 import MemberCard from "./team/MemberCard";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 export default function Team() {
+  const options = { loop: true, slidesToScroll: 1 };
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [
+    Autoplay({ delay: 3000, stopOnFocusIn: false }),
+  ]);
+
   return (
     <div className="mt-8 max-w-[1350px] mx-auto">
       <h1 className="text-4xl font-semibold m-4">Our Team</h1>
@@ -9,16 +16,25 @@ export default function Team() {
         At the heart of Rekaz is a dedicated team who ignites innovation and
         embodies the core values that define our company.
       </p>
-      <div className="flex flex-wrap justify-center">
-        {teamMembers.map((member, index) => (
-          <MemberCard
-            key={index}
-            image={member.image}
-            name={member.name}
-            title={member.title}
-          />
-        ))}
-      </div>
+      <section className="">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex -ms-4 [backfaceVisibility:hidden] [touchAction:pan-y_pinch-zoom]">
+            {teamMembers.map((member, index) => (
+              <div
+                className="[flex:0_0_100%] md:[flex:0_0_50%] lg:[flex:0_0_33%] min-w-0 ps-4"
+                key={index}
+              >
+                <MemberCard
+                  key={index}
+                  image={member.image}
+                  name={member.name}
+                  title={member.title}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
