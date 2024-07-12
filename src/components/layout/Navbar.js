@@ -28,7 +28,6 @@ export const Navbar = ({ navItems, logo }) => {
                 height={20}
                 src="/images/svg/cross.svg"
                 alt="exit menu"
-                className="text-white"
               />
             ) : (
               <Image
@@ -41,11 +40,11 @@ export const Navbar = ({ navItems, logo }) => {
           </button>
         </div>
         <div
-          className={`md:fixed md:top-0 md:bg-white py-2 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
+          className={`md:fixed md:top-0 md:bg-white py-2 mt-0 flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
-            className="flex flex-1 items-center justify-end ml-10 md:justify-center"
+            className="flex flex-1 items-center justify-end me-8 mt-2 md:mt-0 md:justify-center"
             href="/"
           >
             <Image
