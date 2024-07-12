@@ -1,7 +1,5 @@
 import React from "react";
-import bg from "../../../public/images/about/about-us-messages.jpg";
 import Card from "./messages/Card";
-import Image from "next/image";
 
 export default function Messages() {
   return (

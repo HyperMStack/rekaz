@@ -6,7 +6,7 @@ import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 import { urlForImage } from "../../../sanity/lib/image.js";
 
-export const Navbar = ({ navItems, logo, color }) => {
+export const Navbar = ({ navItems, logo }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -41,7 +41,7 @@ export const Navbar = ({ navItems, logo, color }) => {
           </button>
         </div>
         <div
-          className={`md:fixed md:top-0 ${color == "black" ? "md:bg-[#082833]" : "md:bg-white"} py-2 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
+          className={`md:fixed md:top-0 md:bg-white py-2 mt-0" flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
@@ -57,10 +57,10 @@ export const Navbar = ({ navItems, logo, color }) => {
             />
           </Link>
           <div className="grow hidden md:flex items-center justify-center">
-            <DesktopNav color={color} navItems={navItems} />
+            <DesktopNav navItems={navItems} />
           </div>
           <div className="hidden md:flex flex-1 items-center justify-center">
-            <LanguageSwitcher color={color} />
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

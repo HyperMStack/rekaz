@@ -1,10 +1,8 @@
 import Link from "next/link";
 
-export function Footer({ footerLinks, websiteName, language, color }) {
+export function Footer({ footerLinks, websiteName, language }) {
   return (
-    <div
-      className={`max-w-[1350px] mx-auto lg:px-10 ${color == "black" ? "bg-[#082833] text-white" : ""}`}
-    >
+    <div className={`max-w-[1350px] mx-auto lg:px-10`}>
       <footer className="text-sm relative mt-12">
         <div className="container mx-auto flex flex-col lg:flex-row items-center">
           <p className="text-center lg:text-start text-sm w-full">

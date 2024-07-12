@@ -4,7 +4,7 @@ import FadingWords from "./hero/FadingWords";
 import { useRouter } from "next/router";
 import ParallaxSlider from "./ParallaxSlider";
 
-export function Hero({ data, color }) {
+export function Hero({ data }) {
   const router = useRouter();
 
   return (
@@ -14,16 +14,11 @@ export function Hero({ data, color }) {
       </div>
 
       <div className="bottom-[20%] start-[10%] absolute flex flex-col items-start content-center gap-4 leading-8 z-10">
-        <b
-          className={`text-6xl md:text-7xl ${color == "black" ? "text-[#082833]" : "text-white"}`}
-        >
-          {" "}
-          {data.title}
-        </b>
+        <b className={`text-6xl md:text-7xl text-white`}> {data.title}</b>
         {router.locale == "ar" ? (
-          <FadingWords color={color} words={data.changingWords} />
+          <FadingWords words={data.changingWords} />
         ) : (
-          <TypingAnimation color={color} words={data.changingWords} />
+          <TypingAnimation words={data.changingWords} />
         )}
         <button className="my-4">
           <Link

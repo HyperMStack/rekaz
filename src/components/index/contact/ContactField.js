@@ -1,10 +1,7 @@
-export function ContactField({ id, label, icon, placeholder, color }) {
+export function ContactField({ id, label, icon, placeholder }) {
   return (
     <div className="mb-2 w-10/12 text-sm">
-      <label
-        htmlFor={id}
-        className={`block font-medium ${color ? "text-white" : "text-gray-700"} `}
-      >
+      <label htmlFor={id} className={`block font-medium text-gray-700`}>
         {label}
       </label>
       <div className="mt-0 md:mt-1 flex rounded-md shadow-sm lg:mt-2">

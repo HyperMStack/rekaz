@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ContactField } from "./ContactField";
 import { useState } from "react";
 
-export function ContactForm({ language, color }) {
+export function ContactForm({ language }) {
   const [responseStatus, setResponseStatus] = useState(null);
   async function handleSubmit(event) {
     event.preventDefault();
@@ -38,16 +38,13 @@ export function ContactForm({ language, color }) {
 
   return (
     <>
-      <p
-        className={`text-xl my-3 lg:my-0 lg:mb-3 ${color ? "text-white" : "text-gray-700"} `}
-      >
+      <p className={`text-xl my-3 lg:my-0 lg:mb-3 text-gray-700`}>
         {language == "ar"
           ? "يمكنك تعبئة الفورم التالي لإرسال رسالة لنا وسنتواصل معك"
           : "Fill up the form to contact us"}
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2">
         <ContactField
-          color={color}
           id={"name"}
           label={language == "ar" ? "الاسم" : "Name"}
           icon={
@@ -61,7 +58,6 @@ export function ContactForm({ language, color }) {
           placeholder={language == "ar" ? "اسمك" : "Your Name"}
         />
         <ContactField
-          color={color}
           id={"phone"}
           label={language == "ar" ? "رقم الجوال" : "Phone Number"}
           icon={
@@ -75,7 +71,6 @@ export function ContactForm({ language, color }) {
           placeholder={language == "ar" ? "رقم جوالك" : "Your Phone Number"}
         />
         <ContactField
-          color={color}
           id={"email"}
           label={language == "ar" ? "البريد الإلكتروني" : "Email"}
           icon={

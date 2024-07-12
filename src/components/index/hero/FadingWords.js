@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const FadingWords = ({ words, color }) => {
+const FadingWords = ({ words }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -22,9 +22,7 @@ const FadingWords = ({ words, color }) => {
       <span
         className={`inline-block transition-opacity duration-500 ${isVisible ? "animate-fadeInRightToLeft" : "animate-fadeOutLeftToRight"}`}
       >
-        <b
-          className={`text-6xl md:text-7xl ${color == "black" ? "text-[#082833]" : "text-white"}`}
-        >
+        <b className={`text-6xl md:text-7xl text-white`}>
           {words[currentWordIndex]}
         </b>
       </span>
