@@ -6,6 +6,7 @@ import { urlForImage } from "../../sanity/lib/image";
 import Hero from "@/components/about-us/Hero";
 import Messages from "@/components/about-us/Messages";
 import Team from "@/components/about-us/Team";
+import { Contact } from "@/components/index/Contact";
 
 export async function getStaticProps(context) {
   const { locale } = context;
@@ -13,6 +14,7 @@ export async function getStaticProps(context) {
   let navLinksData = [];
   let footerLinksData = [];
   let websiteSettingsData = [];
+  let contactsData = [];
 
   if (locale == "en") {
     navLinksData = await client.fetch(
@@ -24,6 +26,9 @@ export async function getStaticProps(context) {
     websiteSettingsData = await client.fetch(
       '*[_type == "settings" && language == "en"]'
     );
+    contactsData = await client.fetch(
+      '*[_type == "contact" && language == "en"]'
+    );
   } else if (locale == "ar") {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "ar"]'
@@ -34,6 +39,9 @@ export async function getStaticProps(context) {
     websiteSettingsData = await client.fetch(
       '*[_type == "settings" && language == "ar"]'
     );
+    contactsData = await client.fetch(
+      '*[_type == "contact" && language == "ar"]'
+    );
   }
 
   return {
@@ -41,6 +49,7 @@ export async function getStaticProps(context) {
       navLinksData: navLinksData[0].links || {},
       footerLinksData: footerLinksData[0].links || {},
       websiteSettingsData: websiteSettingsData[0] || {},
+      contactsData: contactsData[0],
     },
     revalidate: 10, // In seconds
   };
@@ -50,6 +59,7 @@ export default function AboutUs({
   navLinksData,
   footerLinksData,
   websiteSettingsData,
+  contactsData,
 }) {
   return (
     <>
@@ -90,6 +100,10 @@ export default function AboutUs({
         <Messages />
         <Team />
         {/* <WhyUs /> */}
+        <Contact
+          language={websiteSettingsData.language}
+          contactsData={contactsData}
+        />
       </LayoutWrapper>
     </>
   );

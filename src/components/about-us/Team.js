@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 export default function Team() {
-  const options = { loop: true, slidesToScroll: 1 };
+  const options = { loop: true, slidesToScroll: 1, align: "start" };
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ delay: 3000, stopOnFocusIn: false }),
   ]);
@@ -21,7 +21,7 @@ export default function Team() {
           <div className="flex -ms-4 [backfaceVisibility:hidden] [touchAction:pan-y_pinch-zoom]">
             {teamMembers.map((member, index) => (
               <div
-                className="[flex:0_0_100%] md:[flex:0_0_50%] lg:[flex:0_0_33%] min-w-0 ps-4"
+                className="[flex:0_0_100%] md:[flex:0_0_50%] lg:[flex:0_0_33%] min-w-0 ps-4 mt-4"
                 key={index}
               >
                 <MemberCard

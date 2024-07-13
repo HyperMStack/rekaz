@@ -1,12 +1,49 @@
-import React from "react";
-import Card from "./messages/Card";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function Messages() {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (observer && observer.current) observer.disconnect();
+    };
+  }, []);
   return (
-    <div className="relative flex flex-col gap-8 overflow-hidden">
+    <div
+      ref={containerRef}
+      className="relative flex flex-col gap-8 overflow-hidden max-w-[1350px] mx-auto"
+    >
       <div className="z-10">
         {cards.map((item, index) => (
-          <Card key={index} text={item.text} />
+          <p
+            key={index}
+            text={item.text}
+            className={`border-black border text-center content-center my-6 h-52 md:h-28 p-4 lg:w-1/2 rounded-lg`}
+            style={{
+              transform: isVisible
+                ? `translateX(${index * 50}%)`
+                : "translateX(0)",
+              transition: "transform 0.5s ease",
+            }}
+          >
+            {item.text}
+          </p>
         ))}
       </div>
     </div>

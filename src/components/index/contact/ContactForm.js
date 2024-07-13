@@ -83,7 +83,7 @@ export function ContactForm({ language }) {
           }
           placeholder={language == "ar" ? "بريدك الإلكتروني" : "Your Email"}
         />
-        <div className="w-10/12">
+        <div className="w-full md:w-10/12">
           <label htmlFor="message">
             {language == "ar" ? "الرسالة" : "Message"}
           </label>

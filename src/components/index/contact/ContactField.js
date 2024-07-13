@@ -1,6 +1,6 @@
 export function ContactField({ id, label, icon, placeholder }) {
   return (
-    <div className="mb-2 w-10/12 text-sm">
+    <div className="mb-2 w-full md:w-10/12 text-sm">
       <label htmlFor={id} className={`block font-medium text-gray-700`}>
         {label}
       </label>
