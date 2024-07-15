@@ -3,13 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 export default function Messages() {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.disconnect();
+          } else {
+            setIsVisible(false);
           }
         });
       },
@@ -39,7 +41,8 @@ export default function Messages() {
               transform: isVisible
                 ? `translateX(${index * 50}%)`
                 : "translateX(0)",
-              transition: "transform 0.5s ease",
+              opacity: isVisible ? `1` : `0`,
+              transition: "all 0.5s ease",
             }}
           >
             {item.text}
