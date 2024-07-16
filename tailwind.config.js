@@ -5,6 +5,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: ["md:translate-x-0", "md:translate-x-1/2", "md:translate-x-full"],
   theme: {
     extend: {
       keyframes: {

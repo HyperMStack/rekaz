@@ -7,6 +7,7 @@ import Hero from "@/components/about-us/Hero";
 import Messages from "@/components/about-us/Messages";
 import Team from "@/components/about-us/Team";
 import { Contact } from "@/components/index/Contact";
+import Image from "next/image";
 
 export async function getStaticProps(context) {
   const { locale } = context;
@@ -88,23 +89,69 @@ export default function AboutUs({
           content={`${websiteSettingsData.websiteName}`}
         />
       </Head>
-      <LayoutWrapper
-        logo={websiteSettingsData.logo}
-        navItems={navLinksData}
-        showNav={false}
-        footerLinks={footerLinksData}
-        websiteName={websiteSettingsData.websiteName}
-        language={websiteSettingsData.language}
-      >
-        <Hero />
-        <Messages />
-        <Team />
-        {/* <WhyUs /> */}
-        <Contact
-          language={websiteSettingsData.language}
-          contactsData={contactsData}
+      <div className="relative overflow-hidden">
+        <Image
+          width={350}
+          height={350}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="md:hidden absolute top-[calc(50%-600px)] right-0 translate-x-1/2 opacity-50"
         />
-      </LayoutWrapper>
+        <Image
+          width={350}
+          height={350}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="md:hidden absolute top-[calc(50%+600px)] left-0 -translate-x-1/2"
+        />
+        {/* md screens */}
+        <Image
+          width={600}
+          height={600}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="hidden md:block lg:hidden absolute top-[calc(50%-200px)] right-0 translate-x-1/2 opacity-50"
+        />
+        <Image
+          width={600}
+          height={600}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="hidden md:block lg:hidden absolute top-[calc(50%+400px)] left-0 -translate-x-1/2"
+        />
+        {/* lg screens */}
+        <Image
+          width={800}
+          height={800}
+          src={"/images/svg/star-color.svg"}
+          alt="feature"
+          className="hidden lg:block absolute top-[calc(35%-100px)] right-0 translate-x-1/2 opacity-50"
+        />
+        <Image
+          width={800}
+          height={800}
+          src={"/images/svg/star-gray.svg"}
+          alt="feature"
+          className="hidden lg:block absolute top-[calc(40%+500px)] left-0 -translate-x-1/2"
+        />
+        <LayoutWrapper
+          logo={websiteSettingsData.logo}
+          navItems={navLinksData}
+          showNav={false}
+          footerLinks={footerLinksData}
+          websiteName={websiteSettingsData.websiteName}
+          language={websiteSettingsData.language}
+        >
+          <Hero />
+          <Messages />
+          <Team />
+          {/* <WhyUs /> */}
+          <Contact
+            language={websiteSettingsData.language}
+            contactsData={contactsData}
+          />
+        </LayoutWrapper>
+      </div>
     </>
   );
 }

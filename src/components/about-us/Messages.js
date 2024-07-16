@@ -32,22 +32,21 @@ export default function Messages() {
       className="relative flex flex-col gap-8 overflow-hidden max-w-[1350px] mx-auto"
     >
       <div className="z-10">
-        {cards.map((item, index) => (
-          <p
-            key={index}
-            text={item.text}
-            className={`border-black border text-center content-center my-6 h-52 md:h-28 p-4 lg:w-1/2 rounded-lg`}
-            style={{
-              transform: isVisible
-                ? `translateX(${index * 50}%)`
-                : "translateX(0)",
-              opacity: isVisible ? `1` : `0`,
-              transition: "all 0.5s ease",
-            }}
-          >
-            {item.text}
-          </p>
-        ))}
+        {cards.map((item, index) => {
+          const opacityClass = isVisible ? `opacity-100` : "opacity-0";
+          const translateXClass = isVisible
+            ? `${index === 1 ? `translate-x-1/2` : index === 2 ? `translate-x-full` : "translate-x-0"}`
+            : `translate-x-0`;
+          return (
+            <p
+              key={index}
+              text={item.text}
+              className={`border-black border text-center content-center my-6 mx-3 md:mx-8 lg:mx-0 h-48 lg:h-32 p-10 lg:p-6 md:w-[45%] lg:w-1/2 rounded-lg ${opacityClass} md:${translateXClass} transition-all duration-500 ease-in-out`}
+            >
+              {item.text}
+            </p>
+          );
+        })}
       </div>
     </div>
   );
