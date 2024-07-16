@@ -41,7 +41,7 @@ export default function Messages() {
             <p
               key={index}
               text={item.text}
-              className={`border-black border text-center content-center my-6 mx-3 md:mx-8 lg:mx-0 h-48 lg:h-32 p-10 lg:p-6 md:w-[45%] lg:w-1/2 rounded-lg ${opacityClass} md:${translateXClass} transition-all duration-500 ease-in-out`}
+              className={`border-black border text-center content-center my-6 mx-3 md:mx-8 lg:mx-0 h-48 md:h-56 lg:h-32 p-6 lg:p-6 md:w-[45%] lg:w-1/2 rounded-lg ${opacityClass} md:${translateXClass} transition-all duration-500 ease-in-out`}
             >
               {item.text}
             </p>

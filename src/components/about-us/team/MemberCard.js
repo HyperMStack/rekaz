@@ -4,7 +4,7 @@ import React from "react";
 export default function MemberCard({ image, name, title }) {
   return (
     <div>
-      <div className="h-80 w-64 m-auto flex justify-center">
+      <div className="h-[28rem] w-72 m-auto flex justify-center">
         <Image
           className="w-auto h-full mb-4 object-cover"
           src={image}
