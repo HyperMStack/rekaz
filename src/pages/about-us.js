@@ -8,6 +8,7 @@ import Messages from "@/components/about-us/Messages";
 import Team from "@/components/about-us/Team";
 import { Contact } from "@/components/index/Contact";
 import Image from "next/image";
+import { PartnersCarousel } from "@/components/about-us/PartnersCarousel";
 
 export async function getStaticProps(context) {
   const { locale } = context;
@@ -145,11 +146,12 @@ export default function AboutUs({
           <Hero />
           <Messages />
           <Team />
+          <PartnersCarousel />
           {/* <WhyUs /> */}
-          <Contact
+          {/* <Contact
             language={websiteSettingsData.language}
             contactsData={contactsData}
-          />
+          /> */}
         </LayoutWrapper>
       </div>
     </>

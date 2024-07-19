@@ -4,9 +4,6 @@ import { useRouter } from "next/router";
 
 export function DesktopNav({ navItems }) {
   const router = useRouter();
-  console.log("path: ", router.pathname);
-  console.log("navItems: ", navItems[0].link);
-  console.log("equlaity:", router.pathname == navItems[0].link);
 
   return (
     <div className="flex">
