@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { DesktopNav } from "./navbar/DesktopNav.js";
 import { MobileNav } from "./navbar/MobileNav";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image.js";
 import LanguageSwitcher from "./LanguageSwitcher.js";
 import { urlForImage } from "../../../sanity/lib/image.js";
+import Dialog from "./navbar/Dialog.js";
 
 export const Navbar = ({ navItems, logo }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,9 +74,10 @@ export const Navbar = ({ navItems, logo }) => {
             overflow: "hidden",
           }}
         >
-          <MobileNav navItems={navItems} />
+          <MobileNav navItems={navItems} openState={setIsOpen} />
         </div>
       </div>
+      <Dialog />
     </div>
   );
 };

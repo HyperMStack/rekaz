@@ -1,7 +1,6 @@
 import Link from "next/link";
 // import { DesktopSubNav } from "./DesktopSubNav";
 import { useRouter } from "next/router";
-import Dialog from "./Dialog";
 
 export function DesktopNav({ navItems }) {
   const router = useRouter();
@@ -44,7 +43,6 @@ export function DesktopNav({ navItems }) {
           </div>
         </div>
       ))}
-      <Dialog />
     </div>
   );
 }
