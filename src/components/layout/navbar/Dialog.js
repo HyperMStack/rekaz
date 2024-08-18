@@ -15,22 +15,24 @@ export default function Dialog() {
     }
   }
 
+  const width = 504;
+  const height = 712.8;
+
   return (
     <dialog
       id="profile"
-      className="p-4 rounded-xl shadow-xl outline-none !fixed"
+      className="flex place-content-center justify-center overflow-hidden rounded-lg outline-none"
       onClick={(e) => closeModal(e)}
+      style={{ width: width * 2 }}
     >
-      <h2 className="text-2xl font-semibold text-center">
-        Our Company Profile
-      </h2>
-      <div className="mt-4 overflow-hidden w-auto h-auto">
-        <Flipbook />
-      </div>
+      <Flipbook width={width} height={height} />
       <style jsx>
         {`
           dialog::backdrop {
             background: rgba(0, 0, 0, 0.5);
+          }
+          dialog:not([open]) {
+            opacity: 0;
           }
         `}
       </style>

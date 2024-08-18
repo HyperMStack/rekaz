@@ -15,8 +15,8 @@ export function MobileNavItem({ title, children, link, openState }) {
   }
 
   return (
-    <button onClick={children && toggleCollapse}>
-      {title == "Company Profile" ? (
+    <>
+      {title === "Company Profile" ? (
         <button
           onClick={handleProfileOpen}
           className="py-2 flex justify-between items-center"
@@ -24,24 +24,26 @@ export function MobileNavItem({ title, children, link, openState }) {
           <p className="font-semibold text-white">{title}</p>
         </button>
       ) : (
-        <Link
-          href={link ?? "#"}
-          className="py-2 flex justify-between items-center"
-        >
-          <p className="font-semibold text-white">{title}</p>
-          {children && (
-            <Image
-              width={6}
-              height={6}
-              src="/images/svg/arrow-down.svg"
-              alt="open sub-title"
-              className={`text-white w-6 h-6 ${
-                isOpen ? "rotate-180" : ""
-              } transition-all duration-200 ease-in-out`}
-            />
-          )}
-        </Link>
+        <button onClick={children && toggleCollapse} className="w-full">
+          <Link
+            href={link ?? "#"}
+            className="py-2 flex justify-between items-center"
+          >
+            <p className="font-semibold text-white">{title}</p>
+            {children && (
+              <Image
+                width={6}
+                height={6}
+                src="/images/svg/arrow-down.svg"
+                alt="open sub-title"
+                className={`text-white w-6 h-6 ${
+                  isOpen ? "rotate-180" : ""
+                } transition-all duration-200 ease-in-out`}
+              />
+            )}
+          </Link>
+        </button>
       )}
-    </button>
+    </>
   );
 }

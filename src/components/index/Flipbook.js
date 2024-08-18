@@ -4,9 +4,6 @@ import { Document, Page, pdfjs } from "react-pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const width = 400;
-const height = 285;
-
 const Pages = forwardRef((props, ref) => {
   return (
     <div ref={ref}>
@@ -17,7 +14,7 @@ const Pages = forwardRef((props, ref) => {
 
 Pages.displayName = "Pages";
 
-export default function Flipbook() {
+export default function Flipbook({ width, height }) {
   const [numPages, setNumPages] = useState();
 
   function onDocumentLoadSuccess({ numPages }) {
@@ -25,16 +22,24 @@ export default function Flipbook() {
   }
 
   return (
-    <HTMLFlipBook width={width} height={height} className="relative">
+    <HTMLFlipBook
+      width={width}
+      height={height}
+      style={{
+        minHeight: 0,
+        height: height,
+      }}
+      maxShadowOpacity={0.2}
+    >
       {[...Array(numPages).keys()].map((pNum) => (
         <Pages key={pNum} number={pNum + 1}>
           <Document
-            file={`/pdf/rekaz-profil.pdf`}
+            file={`/pdf/rekaz-portfolio.pdf`}
             onLoadSuccess={onDocumentLoadSuccess}
           >
             <Page
               pageNumber={pNum + 1}
-              width={400}
+              width={width}
               renderAnnotationLayer={false}
               renderTextLayer={false}
             />

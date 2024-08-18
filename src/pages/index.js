@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Contact } from "@/components/index/Contact";
 import { client } from "../../sanity/lib/client";
 import { urlForImage } from "../../sanity/lib/image";
+import Flipbook from "@/components/index/Flipbook";
 
 export async function getStaticProps(context) {
   const { locale } = context;
@@ -165,6 +166,9 @@ export default function Home({
           <Hero data={heroSection} />
           <ProjectsCarousel projects={projectPageData} />
           <Sectors sectorsData={sectorsSection} />
+          {/* <div className="h-screen flex place-content-center justify-center">
+            <Flipbook width={420} height={594} />
+          </div> */}
           <StatsIncrement statsData={statsSection} />
           <Contact
             language={homePageData.language}
