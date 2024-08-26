@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import { Sector } from "./sectors/Sector";
 
@@ -8,16 +9,29 @@ export function Sectors({ sectorsData }) {
     ...sectorsWithoutType[key],
   }));
   return (
-    <div className={`my-16 px-4 rounded-lg`} id="sectors">
+    <div className={`my-16 px-4 rounded-lg max-w-[1350px] m-auto`} id="sectors">
       <h2 className={`text-center text-4xl font-bold py-16`}>{title}</h2>
-      <div className="flex flex-wrap md:flex-nowrap justify-center">
+      <div
+        className="grid grid-cols-1 grid-rows-5 gap-8
+          md:grid-cols-6 md:grid-rows-2
+          md:[grid-template-areas:'sector1_sector1_sector2_sector2_sector3_sector3''._sector4_sector4_sector5_sector5_.']"
+      >
         {sectorsArray?.map((sector, i) => (
-          <Sector
-            icon={urlForImage(sector.image)}
-            title={sector.title}
-            text={sector.description}
+          <div
             key={i}
-          />
+            className="text-center"
+            style={{ gridArea: `sector${i + 1}` }}
+          >
+            <Image
+              src={urlForImage(sector.image)}
+              alt={sector.title}
+              className="m-auto aspect-square w-16 md:w-20 lg:w-24"
+              width={50}
+              height={50}
+            />
+            <p className="text-2xl font-bold mb-2">{sector.title}</p>
+            <p>{sector.description}</p>
+          </div>
         ))}
       </div>
     </div>

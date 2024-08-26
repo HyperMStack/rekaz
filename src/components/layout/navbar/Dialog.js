@@ -28,11 +28,15 @@ export default function Dialog() {
       <Flipbook width={width} height={height} />
       <style jsx>
         {`
+          dialog {
+            transition: all 0.2s linear;
+          }
           dialog::backdrop {
             background: rgba(0, 0, 0, 0.5);
           }
           dialog:not([open]) {
             opacity: 0;
+            height: 0;
           }
         `}
       </style>

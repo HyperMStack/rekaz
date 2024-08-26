@@ -13,12 +13,11 @@ export function DesktopNav({ navItems }) {
       {navItems.map((navItem) => (
         <div key={navItem.title} className="group/navItem py-4 mx-2">
           <div className="relative">
-            {navItem.title == "Company Profile" ? (
+            {navItem.title === "Company Profile" ||
+            navItem.title === "ملف الشركة" ? (
               <button
                 className={`text-sm font-semibold hover:text-[#3a6776]`}
-                onClick={
-                  navItem.title == "Company Profile" ? handleProfileOpen : null
-                }
+                onClick={handleProfileOpen}
               >
                 {navItem.title}
               </button>

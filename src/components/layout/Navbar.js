@@ -77,7 +77,6 @@ export const Navbar = ({ navItems, logo }) => {
           <MobileNav navItems={navItems} openState={setIsOpen} />
         </div>
       </div>
-      <Dialog />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Navbar } from "./layout/Navbar";
 import { Footer } from "./layout/Footer";
+import Dialog from "./layout/navbar/Dialog";
 
 export function LayoutWrapper({
   children,
@@ -13,6 +14,7 @@ export function LayoutWrapper({
     <div className={`relative overflow-hidden`}>
       <Navbar navItems={navItems} logo={logo} />
       {children}
+      <Dialog />
       <Footer
         footerLinks={footerLinks}
         websiteName={websiteName}

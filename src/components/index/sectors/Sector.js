@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function Sector({ icon, title, text }) {
   return (
-    <div className="m-4 max-w-96 text-start">
+    <div className="text-start">
       <Image
         src={icon}
         alt={title}

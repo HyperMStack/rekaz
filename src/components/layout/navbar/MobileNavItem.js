@@ -16,7 +16,7 @@ export function MobileNavItem({ title, children, link, openState }) {
 
   return (
     <>
-      {title === "Company Profile" ? (
+      {title === "Company Profile" || "ملف الشركة" ? (
         <button
           onClick={handleProfileOpen}
           className="py-2 flex justify-between items-center"

@@ -23,5 +23,15 @@ export default {
       title: "Sector 3",
       type: "sectorData",
     },
+    {
+      name: "sector4",
+      title: "Sector 4",
+      type: "sectorData",
+    },
+    {
+      name: "sector5",
+      title: "Sector 5",
+      type: "sectorData",
+    },
   ],
 };
