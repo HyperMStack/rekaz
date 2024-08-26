@@ -15,31 +15,33 @@ export default function Dialog() {
     }
   }
 
-  const width = 504;
-  const height = 712.8;
+  const width = 420;
+  const height = 594;
 
   return (
-    <dialog
-      id="profile"
-      className="flex place-content-center justify-center overflow-hidden rounded-lg outline-none"
-      onClick={(e) => closeModal(e)}
-      style={{ width: width * 2 }}
-    >
-      <Flipbook width={width} height={height} />
-      <style jsx>
-        {`
-          dialog {
-            transition: all 0.2s linear;
-          }
-          dialog::backdrop {
-            background: rgba(0, 0, 0, 0.5);
-          }
-          dialog:not([open]) {
-            opacity: 0;
-            height: 0;
-          }
-        `}
-      </style>
-    </dialog>
+    <>
+      {/* regular screens */}
+      <dialog
+        id="profile"
+        className={`flex place-content-center justify-center overflow-hidden rounded-lg outline-none w-[420px] md:w-[840px]`}
+        onClick={(e) => closeModal(e)}
+      >
+        <Flipbook width={width} height={height} />
+        <style jsx>
+          {`
+            dialog {
+              transition: all 0.2s linear;
+            }
+            dialog::backdrop {
+              background: rgba(0, 0, 0, 0.5);
+            }
+            dialog:not([open]) {
+              opacity: 0;
+              height: 0;
+            }
+          `}
+        </style>
+      </dialog>
+    </>
   );
 }
