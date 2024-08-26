@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { urlForImage } from "../../../../sanity/lib/image";
 
 export default function MemberCard({ image, name, title }) {
   return (
@@ -7,7 +8,7 @@ export default function MemberCard({ image, name, title }) {
       <div className="h-[28rem] w-72 m-auto flex justify-center">
         <Image
           className="w-auto h-full mb-4 object-cover"
-          src={image}
+          src={urlForImage(image)}
           alt={name}
           width={900}
           height={900}

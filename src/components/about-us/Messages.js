@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Messages() {
+export default function Messages({ messages }) {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
 
@@ -32,7 +32,7 @@ export default function Messages() {
       className="relative flex flex-col gap-8 overflow-hidden max-w-[1350px] mx-auto"
     >
       <div className="z-10">
-        {cards.map((item, index) => {
+        {messages.map((item, index) => {
           const opacityClass = isVisible ? `opacity-100` : "opacity-0";
           const translateXClass = isVisible
             ? `${index === 1 ? `translate-x-1/2` : index === 2 ? `translate-x-full` : "translate-x-0"}`
@@ -40,10 +40,10 @@ export default function Messages() {
           return (
             <p
               key={index}
-              text={item.text}
+              text={item.message}
               className={`border-black border text-center content-center my-6 mx-3 md:mx-8 lg:mx-0 h-48 md:h-56 lg:h-32 p-6 lg:p-6 md:w-[45%] lg:w-1/2 rounded-lg ${opacityClass} md:${translateXClass} transition-all duration-500 ease-in-out`}
             >
-              {item.text}
+              {item.message}
             </p>
           );
         })}

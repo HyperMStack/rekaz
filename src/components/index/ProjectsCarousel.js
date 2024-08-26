@@ -15,7 +15,7 @@ export function ProjectsCarousel({ projects }) {
     align: "center",
   };
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    // Autoplay({ delay: 3500, stopOnInteraction: false, stopOnFocusIn: false }),
+    Autoplay({ delay: 3500, stopOnInteraction: false, stopOnFocusIn: false }),
   ]);
 
   return (

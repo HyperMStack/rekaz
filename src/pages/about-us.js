@@ -17,6 +17,7 @@ export async function getStaticProps(context) {
   let footerLinksData = [];
   let websiteSettingsData = [];
   let contactsData = [];
+  let aboutUsData = [];
 
   if (locale == "en") {
     navLinksData = await client.fetch(
@@ -31,6 +32,9 @@ export async function getStaticProps(context) {
     contactsData = await client.fetch(
       '*[_type == "contact" && language == "en"]'
     );
+    aboutUsData = await client.fetch(
+      '*[_type == "aboutUs" && language == "en"]'
+    );
   } else if (locale == "ar") {
     navLinksData = await client.fetch(
       '*[_type == "navLinks" && language == "ar"]'
@@ -44,6 +48,9 @@ export async function getStaticProps(context) {
     contactsData = await client.fetch(
       '*[_type == "contact" && language == "ar"]'
     );
+    aboutUsData = await client.fetch(
+      '*[_type == "aboutUs" && language == "ar"]'
+    );
   }
 
   return {
@@ -52,6 +59,7 @@ export async function getStaticProps(context) {
       footerLinksData: footerLinksData[0].links || {},
       websiteSettingsData: websiteSettingsData[0] || {},
       contactsData: contactsData[0],
+      aboutUsData: aboutUsData[0],
     },
     revalidate: 10, // In seconds
   };
@@ -62,7 +70,9 @@ export default function AboutUs({
   footerLinksData,
   websiteSettingsData,
   contactsData,
+  aboutUsData,
 }) {
+  console.log("about us: ", aboutUsData);
   return (
     <>
       <Head>
@@ -143,10 +153,19 @@ export default function AboutUs({
           websiteName={websiteSettingsData.websiteName}
           language={websiteSettingsData.language}
         >
-          <Hero />
-          <Messages />
-          <Team />
-          <PartnersCarousel />
+          <Hero
+            title={aboutUsData.title}
+            description={aboutUsData.companyDescription}
+          />
+          <Messages messages={aboutUsData.messages} />
+          <Team
+            data={aboutUsData.ourTeam}
+            isRtl={aboutUsData.language == "ar"}
+          />
+          <PartnersCarousel
+            partners={aboutUsData.ourPartners}
+            isRtl={aboutUsData.language == "ar"}
+          />
           {/* <WhyUs /> */}
           {/* <Contact
             language={websiteSettingsData.language}

@@ -28,6 +28,7 @@ export default defineConfig({
           .items([
             S.documentTypeListItem("projectPage").title("Projects"),
             singelton(S, "Home Page", "homePage"),
+            singelton(S, "About Us", "aboutUs"),
             singelton(S, "Navigation Links", "navLinks"),
             singelton(S, "Footer Links", "footerLinks"),
             singelton(S, "Contact Information", "contact"),
@@ -45,6 +46,7 @@ export default defineConfig({
       schemaTypes: [
         "homePage",
         "projectPage",
+        "aboutUs",
         "navLinks",
         "footerLinks",
         "contact",

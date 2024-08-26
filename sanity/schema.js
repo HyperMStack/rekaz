@@ -23,6 +23,12 @@ import socialLinks from "./schemas/contact/socialLinks";
 import contact from "./schemas/contact";
 import termsOfService from "./schemas/termsOfService";
 import privacyPolicy from "./schemas/privacyPolicy";
+import aboutUs from "./schemas/aboutUs";
+import message from "./schemas/aboutUs/message";
+import teamMember from "./schemas/aboutUs/teamMember";
+import partner from "./schemas/aboutUs/partner";
+import teamMembers from "./schemas/aboutUs/teamMembers";
+import ourPartners from "./schemas/aboutUs/ourPartners";
 
 export const schema = {
   types: [
@@ -51,5 +57,11 @@ export const schema = {
     contact,
     termsOfService,
     privacyPolicy,
+    aboutUs,
+    message,
+    teamMembers,
+    teamMember,
+    ourPartners,
+    partner,
   ],
 };
