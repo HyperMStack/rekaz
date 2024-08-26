@@ -157,7 +157,10 @@ export default function AboutUs({
             title={aboutUsData.title}
             description={aboutUsData.companyDescription}
           />
-          <Messages messages={aboutUsData.messages} />
+          <Messages
+            messages={aboutUsData.messages}
+            isRtl={aboutUsData.language == "ar"}
+          />
           <Team
             data={aboutUsData.ourTeam}
             isRtl={aboutUsData.language == "ar"}

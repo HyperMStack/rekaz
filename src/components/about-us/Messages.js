@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export default function Messages({ messages }) {
+export default function Messages({ messages, isRtl }) {
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
 
@@ -31,16 +31,17 @@ export default function Messages({ messages }) {
       ref={containerRef}
       className="relative flex flex-col gap-8 overflow-hidden max-w-[1350px] mx-auto"
     >
-      <div className="z-10">
+      <div className="z-10" dir="ltr">
         {messages.map((item, index) => {
           const opacityClass = isVisible ? `opacity-100` : "opacity-0";
           const translateXClass = isVisible
-            ? `${index === 1 ? `translate-x-1/2` : index === 2 ? `translate-x-full` : "translate-x-0"}`
+            ? isRtl
+              ? `${index === 1 ? `translate-x-1/2` : index === 2 ? `translate-x-0` : "translate-x-full"}`
+              : `${index === 1 ? `translate-x-1/2` : index === 2 ? `translate-x-full` : "translate-x-0"}`
             : `translate-x-0`;
           return (
             <p
               key={index}
-              text={item.message}
               className={`border-black border text-center content-center my-6 mx-3 md:mx-8 lg:mx-0 h-48 md:h-56 lg:h-32 p-6 lg:p-6 md:w-[45%] lg:w-1/2 rounded-lg ${opacityClass} md:${translateXClass} transition-all duration-500 ease-in-out`}
             >
               {item.message}
