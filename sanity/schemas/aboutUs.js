@@ -20,11 +20,11 @@ export default {
       title: "Team Memebers",
       type: "teamMembers",
     },
-    {
-      name: "ourPartners",
-      title: "Our Partners",
-      type: "ourPartners",
-    },
+    // {
+    //   name: "ourPartners",
+    //   title: "Our Partners",
+    //   type: "ourPartners",
+    // },
     {
       name: "language",
       type: "string",

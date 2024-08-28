@@ -165,10 +165,10 @@ export default function AboutUs({
             data={aboutUsData.ourTeam}
             isRtl={aboutUsData.language == "ar"}
           />
-          <PartnersCarousel
+          {/* <PartnersCarousel
             partners={aboutUsData.ourPartners}
             isRtl={aboutUsData.language == "ar"}
-          />
+          /> */}
           {/* <WhyUs /> */}
           {/* <Contact
             language={websiteSettingsData.language}
