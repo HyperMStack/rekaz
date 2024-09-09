@@ -1,6 +1,7 @@
 import { Navbar } from "./layout/Navbar";
 import { Footer } from "./layout/Footer";
 import Dialog from "./layout/navbar/Dialog";
+import MobileDialog from "./layout/navbar/MobileDialog";
 
 export function LayoutWrapper({
   children,
@@ -15,6 +16,7 @@ export function LayoutWrapper({
       <Navbar navItems={navItems} logo={logo} />
       {children}
       <Dialog />
+      <MobileDialog />
       <Footer
         footerLinks={footerLinks}
         websiteName={websiteName}

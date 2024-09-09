@@ -10,7 +10,7 @@ export function MobileNavItem({ title, children, link, openState }) {
   };
 
   function handleProfileOpen() {
-    document.getElementById("profile").showModal();
+    document.getElementById("mobileProfile").showModal();
     openState(false);
   }
 

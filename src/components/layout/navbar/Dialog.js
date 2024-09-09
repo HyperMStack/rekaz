@@ -15,18 +15,18 @@ export default function Dialog() {
     }
   }
 
-  const width = 420;
-  const height = 594;
+  const regularWidth = 490;
+  const regularHeight = 693;
 
   return (
     <>
       {/* regular screens */}
       <dialog
         id="profile"
-        className={`flex place-content-center justify-center overflow-hidden rounded-lg outline-none w-[420px] md:w-[840px]`}
+        className={`hidden md:flex place-content-center justify-center overflow-hidden rounded-lg outline-none md:w-[980px]`}
         onClick={(e) => closeModal(e)}
       >
-        <Flipbook width={width} height={height} />
+        <Flipbook width={regularWidth} height={regularHeight} />
         <style jsx>
           {`
             dialog {
