@@ -41,7 +41,7 @@ export const Navbar = ({ navItems, logo }) => {
           </button>
         </div>
         <div
-          className={`md:fixed md:top-0 md:bg-white py-2 mt-0 flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
+          className={`md:fixed md:top-0 bg-white py-2 mt-0 flex flex-1 mx-auto absolute top-0 w-full md:justify-around`}
           style={{ transition: "background 0.3s ease-in-out" }}
         >
           <Link
