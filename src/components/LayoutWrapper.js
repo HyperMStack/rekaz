@@ -10,13 +10,14 @@ export function LayoutWrapper({
   footerLinks,
   websiteName,
   language,
+  pdfFile,
 }) {
   return (
     <div className={`relative overflow-hidden`}>
       <Navbar navItems={navItems} logo={logo} />
       {children}
-      <Dialog />
-      <MobileDialog />
+      <Dialog file={pdfFile} />
+      <MobileDialog file={pdfFile} />
       <Footer
         footerLinks={footerLinks}
         websiteName={websiteName}

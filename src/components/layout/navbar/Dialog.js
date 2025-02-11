@@ -1,7 +1,7 @@
 import Flipbook from "@/components/index/Flipbook";
 import React from "react";
 
-export default function Dialog() {
+export default function Dialog({ file }) {
   function closeModal(e) {
     const modal = document.getElementById("profile");
     const dialogDimensions = modal.getBoundingClientRect();
@@ -26,7 +26,11 @@ export default function Dialog() {
         className={`hidden md:flex place-content-center justify-center overflow-hidden rounded-lg outline-none md:w-[980px]`}
         onClick={(e) => closeModal(e)}
       >
-        <Flipbook width={regularWidth} height={regularHeight} />
+        <Flipbook
+          width={regularWidth}
+          height={regularHeight}
+          pdfFileLink={file}
+        />
         <style jsx>
           {`
             dialog {

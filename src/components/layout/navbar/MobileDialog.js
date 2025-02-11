@@ -1,7 +1,7 @@
 import Flipbook from "@/components/index/Flipbook";
 import React from "react";
 
-export default function MobileDialog() {
+export default function MobileDialog({ file }) {
   function closeModal(e) {
     const mobileModal = document.getElementById("mobileProfile");
     const mobileDialogDimensions = mobileModal.getBoundingClientRect();
@@ -26,7 +26,7 @@ export default function MobileDialog() {
         className={`flex md:hidden place-content-center justify-center overflow-hidden rounded-lg outline-none w-[350px]`}
         onClick={(e) => closeModal(e)}
       >
-        <Flipbook width={mobileWidth} height={mobileHeight} />
+        <Flipbook width={mobileWidth} height={mobileHeight} pdfFile={file} />
         <style jsx>
           {`
             dialog {

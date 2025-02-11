@@ -19,6 +19,7 @@ export async function getStaticProps(context) {
   let footerLinksData = [];
   let websiteSettingsData = [];
   let contactsData = [];
+  let pdfFile;
 
   if (locale == "en") {
     homePageData = await client.fetch(
@@ -39,6 +40,9 @@ export async function getStaticProps(context) {
     contactsData = await client.fetch(
       '*[_type == "contact" && language == "en"]'
     );
+    pdfFile = await client.fetch(
+      '*[_type=="settings" && language == "en"][0]{"portfolioURL": portfolioFile.asset->url}'
+    );
   } else if (locale == "ar") {
     homePageData = await client.fetch(
       '*[_type == "homePage" && language=="ar"]'
@@ -58,6 +62,9 @@ export async function getStaticProps(context) {
     contactsData = await client.fetch(
       '*[_type == "contact" && language == "ar"]'
     );
+    pdfFile = await client.fetch(
+      '*[_type=="settings" && language == "ar"][0]{"portfolioURL": portfolioFile.asset->url}'
+    );
   }
 
   return {
@@ -68,6 +75,7 @@ export async function getStaticProps(context) {
       footerLinksData: footerLinksData[0].links || {},
       websiteSettingsData: websiteSettingsData[0] || {},
       contactsData: contactsData[0],
+      pdfFile: pdfFile.portfolioURL,
     },
     revalidate: 10, // In seconds
   };
@@ -80,6 +88,7 @@ export default function Home({
   footerLinksData,
   websiteSettingsData,
   contactsData,
+  pdfFile,
 }) {
   const { heroSection, sectorsSection, statsSection } = homePageData;
   return (
@@ -157,6 +166,7 @@ export default function Home({
         />
         <LayoutWrapper
           logo={websiteSettingsData.logo}
+          pdfFile={pdfFile}
           navItems={navLinksData}
           showNav={false}
           footerLinks={footerLinksData}

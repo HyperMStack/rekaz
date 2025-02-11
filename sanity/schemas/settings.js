@@ -25,6 +25,17 @@ export default {
       type: "string",
     },
     {
+      name: "portfolioFile",
+      title: "Pdf Portfolio File",
+      type: "file",
+    },
+    {
+      name: "portfolioImages",
+      title: "Portfolio Images",
+      type: "array",
+      of: [{ type: "image" }],
+    },
+    {
       name: "logo",
       title: "Logo",
       type: "image",

@@ -14,9 +14,9 @@ const Pages = forwardRef((props, ref) => {
 
 Pages.displayName = "Pages";
 
-export default function Flipbook({ width, height }) {
+export default function Flipbook({ width, height, pdfFile }) {
   const [numPages, setNumPages] = useState();
-  const pdfFile = "/pdf/rekaz-portfolio.pdf";
+  // const pdfFile = "/pdf/rekaz-portfolio.pdf";
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);

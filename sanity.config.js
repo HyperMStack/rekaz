@@ -1,7 +1,6 @@
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 import { documentInternationalization } from "@sanity/document-internationalization";
@@ -26,8 +25,8 @@ export default defineConfig({
         S.list()
           .title("Content")
           .items([
-            S.documentTypeListItem("projectPage").title("Projects"),
             singelton(S, "Home Page", "homePage"),
+            S.documentTypeListItem("projectPage").title("Projects"),
             singelton(S, "About Us", "aboutUs"),
             singelton(S, "Navigation Links", "navLinks"),
             singelton(S, "Footer Links", "footerLinks"),
@@ -37,7 +36,7 @@ export default defineConfig({
             singelton(S, "Terms of Service", "termsOfService"),
           ]),
     }),
-    visionTool({ defaultApiVersion: apiVersion }),
+    // visionTool({ defaultApiVersion: apiVersion }),
     documentInternationalization({
       supportedLanguages: [
         { id: "ar", title: "Arabic", isDefault: true },
