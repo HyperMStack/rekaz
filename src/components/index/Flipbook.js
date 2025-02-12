@@ -16,7 +16,7 @@ Pages.displayName = "Pages";
 
 export default function Flipbook({ width, height, pdfFile }) {
   const [numPages, setNumPages] = useState();
-  // const pdfFile = "/pdf/rekaz-portfolio.pdf";
+  const backupPdfFile = "/pdf/rekaz-portfolio.pdf";
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -34,7 +34,10 @@ export default function Flipbook({ width, height, pdfFile }) {
     >
       {[...Array(numPages).keys()].map((pNum) => (
         <Pages key={pNum} number={pNum + 1}>
-          <Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
+          <Document
+            file={pdfFile ? pdfFile : backupPdfFile}
+            onLoadSuccess={onDocumentLoadSuccess}
+          >
             <Page
               pageNumber={pNum + 1}
               width={width}
